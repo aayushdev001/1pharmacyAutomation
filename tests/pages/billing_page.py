@@ -111,7 +111,8 @@ class BillingPage:
 
     def get_item_total(self):
         self.item_total = self.wait.until(EC.presence_of_element_located((By.XPATH,
-                                                                          '/html[1]/body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[13]')))
+                                                                          '//body[1]/div[1]/section[1]/main[1]/section[1]/div[3]/section[1]/div[1]/div[5]/h6[2]')))
+        # print(self.item_total.text)
         amount = self.item_total.text.replace('₹', '').replace(',', '')
         return float(amount)
         # match = re.search(r'₹ (\d+(\.\d*)?)', self.item_total.text)

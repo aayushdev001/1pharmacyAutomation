@@ -9,6 +9,7 @@ from tests.pages.otp_page import OtpPage
 import pyautogui
 
 from tests.testSteps.base_class import BaseClass
+from tests.utils.login_util import LoginUtil
 
 
 @pytest.mark.usefixtures("driver", "config")
@@ -18,14 +19,12 @@ class TestDashboardSales(BaseClass):
         log = self.get_logger()
 
         # login
-        driver.get(config['1pharmacy_login_url'])
-        login_page = LoginPage(driver, config['wait'])
-        login_page.enter_phone_number(config['phone_number'])
-        login_page.click_otp_button()
+        login_util = LoginUtil(driver, config)
+        login_util.login()
         otp_page = OtpPage(driver, config['wait'])
-        otp_page.enter_otp(config['first_digit'], config['second_digit'], config['third_digit'], config['fourth_digit'])
-        otp_page.click_login()
+        otp_page = OtpPage(driver, config['wait'])
         otp_page.navigate_dashboard()
+        time.sleep(4)
         # print(driver.current_url)
 
         # storing initial sales and purchase amount
@@ -59,7 +58,7 @@ class TestDashboardSales(BaseClass):
         final_purchase_amount = dashboard_page2.get_total_purchase_amount()
         log.info(f"Final sales amount = {final_sales_amount}")
         # print(f"Final purchase amount = {dashboard_page2.get_total_purchase_amount()}")
-        assert initial_sales_amount + total_amount == final_sales_amount
+        assert float("{:.2f}".format(initial_sales_amount + total_amount)) == final_sales_amount
 
 
 
