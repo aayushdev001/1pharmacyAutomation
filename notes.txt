@@ -1,0 +1,1 @@
+C:\Users\HP\PycharmProjects\1pharmacyAutomation\tests\testSteps> pytest -v --html=../reports/report.html test_login.py

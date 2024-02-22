@@ -1,0 +1,25 @@
+2024-02-22 11:42:27,975 :INFO : test_billing : Expected Total = 980.0
+2024-02-22 11:42:27,976 :INFO : test_billing : Actual Total = 980.0
+2024-02-22 11:42:27,976 :INFO : test_billing : Original stock = 11
+2024-02-22 11:42:27,976 :INFO : test_billing : Sold quantity = 10
+2024-02-22 11:42:27,977 :INFO : test_billing : Remaining stock = 1
+2024-02-22 11:43:14,720 :INFO : test_billing : Expected Total = 980.0
+2024-02-22 11:43:14,720 :INFO : test_billing : Expected Total = 980.0
+2024-02-22 11:43:14,720 :INFO : test_billing : Actual Total = 980.0
+2024-02-22 11:43:14,720 :INFO : test_billing : Actual Total = 980.0
+2024-02-22 11:43:14,722 :INFO : test_billing : New batch name = ScZ
+2024-02-22 11:43:14,722 :INFO : test_billing : New batch name = ScZ
+2024-02-22 11:43:14,723 :INFO : test_billing : Sold quantity = 10
+2024-02-22 11:43:14,723 :INFO : test_billing : Sold quantity = 10
+2024-02-22 11:43:14,723 :INFO : test_billing : Remaining stock = -10
+2024-02-22 11:43:14,723 :INFO : test_billing : Remaining stock = -10
+2024-02-22 11:43:55,849 :INFO : test_dashboard_purchase : Initial purchase amount on dashboard = 0.0
+2024-02-22 11:43:55,851 :INFO : test_dashboard_purchase : Purchase amount = 851.2
+2024-02-22 11:43:55,851 :INFO : test_dashboard_purchase : Final purchase amount on dashboard = 851.2
+2024-02-22 11:44:12,703 :INFO : test_login : Home page url -> https://alpha.1pharmacy.io/bill-entry/draft/1
+2024-02-22 11:44:47,592 :INFO : test_purchase : Quantity purchased = 10
+2024-02-22 11:44:47,616 :INFO : test_purchase : Latest purchase input in inventory = 10
+2024-02-22 11:45:40,474 :INFO : test_sales_return : Initial Stock = 513
+2024-02-22 11:45:40,475 :INFO : test_sales_return : Sales quantity = 10
+2024-02-22 11:45:40,475 :INFO : test_sales_return : Return quantity = 5
+2024-02-22 11:45:40,475 :INFO : test_sales_return : Final Stock (after sales and return) = 508

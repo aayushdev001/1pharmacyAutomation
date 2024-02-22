@@ -1,0 +1,210 @@
+2024-02-20 12:22:41,604 :INFO : test_login : https://alpha.1pharmacy.io/bill-entry/draft/1
+2024-02-20 12:31:57,825 :INFO : test_login : https://alpha.1pharmacy.io/bill-entry/draft/1
+2024-02-20 12:32:23,243 :INFO : test_login : https://alpha.1pharmacy.io/bill-entry/draft/1
+2024-02-20 12:40:44,459 :INFO : test_login : https://alpha.1pharmacy.io/bill-entry/draft/1
+2024-02-20 12:46:32,397 :INFO : test_login : https://alpha.1pharmacy.io/bill-entry/draft/1
+2024-02-20 17:21:54,207 :INFO : test_login : https://alpha.1pharmacy.io/login
+2024-02-21 13:00:00,246 :INFO : test_login : https://alpha.1pharmacy.io/bill-entry/draft/1
+2024-02-21 13:42:18,645 :INFO : test_login : https://alpha.1pharmacy.io/bill-entry/draft/1
+2024-02-21 13:45:15,998 :INFO : test_login : Home page url -> https://alpha.1pharmacy.io/bill-entry/draft/1
+2024-02-21 14:48:19,786 :INFO : test_billing : Expected Total = 980.0
+2024-02-21 14:52:19,291 :INFO : test_billing : Expected Total = 980.0
+2024-02-21 14:52:19,291 :INFO : test_billing : Actual Total = 980.0
+2024-02-21 14:52:19,291 :INFO : test_billing : Original stock = 87
+2024-02-21 14:52:19,291 :INFO : test_billing : Sold quantity = 10
+2024-02-21 14:52:19,291 :INFO : test_billing : Remaining stock = 77
+2024-02-21 14:53:41,947 :INFO : test_billing : Expected Total = 980.0
+2024-02-21 14:53:41,947 :INFO : test_billing : Actual Total = 980.0
+2024-02-21 14:53:41,947 :INFO : test_billing : Original stock = 77
+2024-02-21 14:53:41,947 :INFO : test_billing : Sold quantity = 10
+2024-02-21 14:53:41,948 :INFO : test_billing : Remaining stock = 67
+2024-02-21 15:20:03,568 :INFO : test_billing : Expected Total = 980.0
+2024-02-21 15:20:03,568 :INFO : test_billing : Actual Total = 980.0
+2024-02-21 15:20:03,568 :INFO : test_billing : New batch name = LaO
+2024-02-21 15:20:03,569 :INFO : test_billing : Sold quantity = 10
+2024-02-21 15:21:34,738 :INFO : test_billing : Expected Total = 980.0
+2024-02-21 15:21:34,738 :INFO : test_billing : Actual Total = 980.0
+2024-02-21 15:21:34,738 :INFO : test_billing : New batch name = oft
+2024-02-21 15:21:34,739 :INFO : test_billing : Sold quantity = 10
+2024-02-21 15:23:11,895 :INFO : test_billing : Expected Total = 980.0
+2024-02-21 15:23:11,896 :INFO : test_billing : Actual Total = 980.0
+2024-02-21 15:23:11,896 :INFO : test_billing : New batch name = LVj
+2024-02-21 15:23:11,896 :INFO : test_billing : Sold quantity = 10
+2024-02-21 15:23:11,896 :INFO : test_billing : Remaining stock = -10
+2024-02-21 16:07:11,070 :INFO : test_billing : Expected Total = 980.0
+2024-02-21 16:07:11,071 :INFO : test_billing : Actual Total = 980.0
+2024-02-21 16:07:11,071 :INFO : test_billing : Original stock = 55
+2024-02-21 16:07:11,071 :INFO : test_billing : Sold quantity = 10
+2024-02-21 16:07:11,071 :INFO : test_billing : Remaining stock = 45
+2024-02-21 16:23:16,400 :INFO : test_dashboard : Initial sales amount 8339.0
+2024-02-21 16:23:16,401 :INFO : test_dashboard : Sales amount 98.0
+2024-02-21 16:23:16,402 :INFO : test_dashboard : Final sales amount 8437.0
+2024-02-21 16:24:22,056 :INFO : test_dashboard : Initial sales amount 8437.0
+2024-02-21 16:24:22,056 :INFO : test_dashboard : Sales amount 98.0
+2024-02-21 16:24:22,057 :INFO : test_dashboard : Final sales amount 8535.0
+2024-02-21 16:35:42,465 :INFO : test_purchase : Quantity purchased = 10
+2024-02-21 16:35:42,489 :INFO : test_purchase : Latest purchase input in inventory = 10
+2024-02-21 16:37:46,694 :INFO : test_purchase : Quantity purchased = 10
+2024-02-21 16:37:46,721 :INFO : test_purchase : Latest purchase input in inventory = 10
+2024-02-21 16:45:10,505 :INFO : test_sales_return : Initial Stock = 523
+2024-02-21 16:45:10,505 :INFO : test_sales_return : Sales quantity = 10
+2024-02-21 16:45:10,506 :INFO : test_sales_return : Return quantity = 5
+2024-02-21 16:45:10,506 :INFO : test_sales_return : Final Stock (after sales and return) = 518
+2024-02-21 16:50:10,604 :INFO : test_billing : Expected Total = 980.0
+2024-02-21 16:50:10,604 :INFO : test_billing : Actual Total = 980.0
+2024-02-21 16:50:10,605 :INFO : test_billing : Original stock = 42
+2024-02-21 16:50:10,605 :INFO : test_billing : Sold quantity = 10
+2024-02-21 16:50:10,605 :INFO : test_billing : Remaining stock = 32
+2024-02-21 16:50:55,360 :INFO : test_billing : Expected Total = 980.0
+2024-02-21 16:50:55,360 :INFO : test_billing : Expected Total = 980.0
+2024-02-21 16:50:55,360 :INFO : test_billing : Actual Total = 980.0
+2024-02-21 16:50:55,360 :INFO : test_billing : Actual Total = 980.0
+2024-02-21 16:50:55,361 :INFO : test_billing : New batch name = liM
+2024-02-21 16:50:55,361 :INFO : test_billing : New batch name = liM
+2024-02-21 16:50:55,361 :INFO : test_billing : Sold quantity = 10
+2024-02-21 16:50:55,361 :INFO : test_billing : Sold quantity = 10
+2024-02-21 16:50:55,361 :INFO : test_billing : Remaining stock = -10
+2024-02-21 16:50:55,361 :INFO : test_billing : Remaining stock = -10
+2024-02-21 16:51:43,314 :INFO : test_dashboard : Initial sales amount 10495.0
+2024-02-21 16:51:43,315 :INFO : test_dashboard : Sales amount 98.0
+2024-02-21 16:51:43,315 :INFO : test_dashboard : Final sales amount 10593.0
+2024-02-21 16:51:56,838 :INFO : test_login : Home page url -> https://alpha.1pharmacy.io/bill-entry/draft/1
+2024-02-21 16:52:33,898 :INFO : test_purchase : Quantity purchased = 10
+2024-02-21 16:52:33,923 :INFO : test_purchase : Latest purchase input in inventory = 10
+2024-02-21 16:53:33,333 :INFO : test_sales_return : Initial Stock = 518
+2024-02-21 16:53:33,334 :INFO : test_sales_return : Sales quantity = 10
+2024-02-21 16:53:33,334 :INFO : test_sales_return : Return quantity = 5
+2024-02-21 16:53:33,334 :INFO : test_sales_return : Final Stock (after sales and return) = 513
+2024-02-21 17:52:16,131 :INFO : test_dashboard_purchase : Initial purchase amount on dashboard = 15209.4
+2024-02-21 17:52:16,133 :INFO : test_dashboard_purchase : Purchase amount = 851.2
+2024-02-21 17:52:16,133 :INFO : test_dashboard_purchase : Final purchase amount on dashboard = 16060.6
+2024-02-21 17:55:43,209 :INFO : test_dashboard_purchase : Initial purchase amount on dashboard = 16911.8
+2024-02-21 17:55:43,210 :INFO : test_dashboard_purchase : Purchase amount = 851.2
+2024-02-21 17:55:43,210 :INFO : test_dashboard_purchase : Final purchase amount on dashboard = 17763.0
+2024-02-21 18:30:49,630 :INFO : test_billing : Expected Total = 980.0
+2024-02-21 18:30:49,631 :INFO : test_billing : Actual Total = 980.0
+2024-02-21 18:30:49,631 :INFO : test_billing : Original stock = 31
+2024-02-21 18:30:49,631 :INFO : test_billing : Sold quantity = 10
+2024-02-21 18:30:49,631 :INFO : test_billing : Remaining stock = 21
+2024-02-21 18:46:34,750 :INFO : test_billing : Expected Total = 980.0
+2024-02-21 18:46:34,750 :INFO : test_billing : Actual Total = 980.0
+2024-02-21 18:46:34,750 :INFO : test_billing : Original stock = 21
+2024-02-21 18:46:34,751 :INFO : test_billing : Sold quantity = 10
+2024-02-21 18:46:34,751 :INFO : test_billing : Remaining stock = 11
+2024-02-22 11:57:48,372 :INFO : test_dashboard_sales : Initial sales amount = 2156.0
+2024-02-22 11:57:48,373 :INFO : test_dashboard_sales : Sales amount = 100.0
+2024-02-22 11:57:48,373 :INFO : test_dashboard_sales : Final sales amount = 2256.0
+2024-02-22 12:08:01,027 :INFO : test_billing : Sold quantity = 10
+2024-02-22 12:08:05,489 :INFO : test_billing : Expected Total = 1000.0
+2024-02-22 12:08:05,489 :INFO : test_billing : Actual Total = 1.0
+2024-02-22 12:09:15,010 :INFO : test_billing : Sold quantity = 10
+2024-02-22 12:09:19,510 :INFO : test_billing : Expected Total = 1000.0
+2024-02-22 12:09:19,510 :INFO : test_billing : Actual Total = 1.0
+2024-02-22 12:13:03,290 :INFO : test_billing : Sold quantity = 10
+2024-02-22 12:13:08,083 :INFO : test_billing : Expected Total = 1000.0
+2024-02-22 12:13:08,083 :INFO : test_billing : Actual Total = 1.0
+2024-02-22 12:32:11,389 :INFO : test_billing : Sold quantity = 10
+2024-02-22 12:32:15,903 :INFO : test_billing : Expected Total = 1000.0
+2024-02-22 12:32:15,903 :INFO : test_billing : Actual Total = 1000.0
+2024-02-22 12:33:31,518 :INFO : test_billing : Sold quantity = 10
+2024-02-22 12:33:35,964 :INFO : test_billing : Expected Total = 1000.0
+2024-02-22 12:33:35,965 :INFO : test_billing : Actual Total = 1000.0
+2024-02-22 12:33:45,619 :INFO : test_billing : Original stock = 171
+2024-02-22 12:33:45,619 :INFO : test_billing : Remaining stock = 161
+2024-02-22 12:36:07,885 :INFO : test_billing : Sold quantity = 10
+2024-02-22 12:36:12,768 :INFO : test_billing : Expected Total = 1000.0
+2024-02-22 12:36:12,768 :INFO : test_billing : Actual Total = 1000.0
+2024-02-22 12:36:22,437 :INFO : test_billing : Original stock = 161
+2024-02-22 12:36:22,437 :INFO : test_billing : Remaining stock = 151
+2024-02-22 12:54:48,647 :INFO : test_billing : New batch name = CDF
+2024-02-22 12:54:56,925 :INFO : test_billing : Sold quantity = 10
+2024-02-22 12:55:01,316 :INFO : test_billing : Expected Total = 1000.0
+2024-02-22 12:55:01,316 :INFO : test_billing : Actual Total = 1000.0
+2024-02-22 12:55:14,441 :INFO : test_billing : Remaining stock = -10
+2024-02-22 12:58:52,699 :INFO : test_dashboard_purchase : Initial purchase amount on dashboard = 1694.56
+2024-02-22 12:59:02,323 :INFO : test_dashboard_purchase : Purchase amount = 851.2
+2024-02-22 13:00:48,664 :INFO : test_dashboard_purchase : Initial purchase amount on dashboard = 2545.76
+2024-02-22 13:00:58,242 :INFO : test_dashboard_purchase : Purchase amount = 851.2
+2024-02-22 13:01:10,237 :INFO : test_dashboard_purchase : Final purchase amount on dashboard = 3396.96
+2024-02-22 13:08:23,724 :INFO : test_dashboard_sales : Initial sales amount = 6344.2
+2024-02-22 13:08:42,246 :INFO : test_dashboard_sales : Sales amount = 100.0
+2024-02-22 13:53:01,459 :INFO : test_dashboard_sales : Initial sales amount = 6444.2
+2024-02-22 13:53:20,675 :INFO : test_dashboard_sales : Sales amount = 100.0
+2024-02-22 13:54:51,114 :INFO : test_dashboard_purchase : Initial purchase amount on dashboard = 3396.96
+2024-02-22 13:55:01,531 :INFO : test_dashboard_purchase : Purchase amount = 851.2
+2024-02-22 13:55:13,377 :INFO : test_dashboard_purchase : Final purchase amount on dashboard = 4248.16
+2024-02-22 14:08:55,019 :INFO : test_dashboard_sales : Initial sales amount = 6544.2
+2024-02-22 14:09:14,247 :INFO : test_dashboard_sales : Sales amount = 100.0
+2024-02-22 14:09:30,577 :INFO : test_dashboard_sales : Final sales amount = 6644.2
+2024-02-22 14:10:49,013 :INFO : test_purchase : Quantity purchased = 10
+2024-02-22 14:11:03,429 :INFO : test_purchase : Latest purchase input in inventory = 10
+2024-02-22 14:14:41,625 :INFO : test_sales_return : Sales quantity = 10
+2024-02-22 14:14:41,728 :INFO : test_sales_return : Initial Stock = 508
+2024-02-22 14:14:59,543 :INFO : test_sales_return : Return quantity = 5
+2024-02-22 14:15:13,754 :INFO : test_sales_return : Final Stock (after sales and return) = 503
+2024-02-22 14:21:01,241 :INFO : test_billing : Sold quantity = 10
+2024-02-22 14:21:05,876 :INFO : test_billing : Expected Total = 1000.0
+2024-02-22 14:21:05,876 :INFO : test_billing : Actual Total = 1000.0
+2024-02-22 14:21:52,184 :INFO : test_billing : New batch name = WyV
+2024-02-22 14:21:52,184 :INFO : test_billing : New batch name = WyV
+2024-02-22 14:22:00,413 :INFO : test_billing : Sold quantity = 10
+2024-02-22 14:22:00,413 :INFO : test_billing : Sold quantity = 10
+2024-02-22 14:22:04,798 :INFO : test_billing : Expected Total = 1000.0
+2024-02-22 14:22:04,798 :INFO : test_billing : Expected Total = 1000.0
+2024-02-22 14:22:04,798 :INFO : test_billing : Actual Total = 1000.0
+2024-02-22 14:22:04,798 :INFO : test_billing : Actual Total = 1000.0
+2024-02-22 14:33:25,431 :INFO : test_billing : Sold quantity = 10
+2024-02-22 14:33:29,870 :INFO : test_billing : Expected Total = 1000.0
+2024-02-22 14:33:29,870 :INFO : test_billing : Actual Total = 1000.0
+2024-02-22 14:33:39,463 :INFO : test_billing : Original stock = 178
+2024-02-22 14:33:39,464 :INFO : test_billing : Remaining stock = 168
+2024-02-22 14:33:57,319 :INFO : test_billing : New batch name = xxh
+2024-02-22 14:33:57,319 :INFO : test_billing : New batch name = xxh
+2024-02-22 14:34:05,713 :INFO : test_billing : Sold quantity = 10
+2024-02-22 14:34:05,713 :INFO : test_billing : Sold quantity = 10
+2024-02-22 14:34:10,085 :INFO : test_billing : Expected Total = 1000.0
+2024-02-22 14:34:10,085 :INFO : test_billing : Expected Total = 1000.0
+2024-02-22 14:34:10,086 :INFO : test_billing : Actual Total = 1000.0
+2024-02-22 14:34:10,086 :INFO : test_billing : Actual Total = 1000.0
+2024-02-22 14:34:28,287 :INFO : test_billing : Remaining stock = -10
+2024-02-22 14:34:28,287 :INFO : test_billing : Remaining stock = -10
+2024-02-22 14:34:55,514 :INFO : test_dashboard_purchase : Initial purchase amount on dashboard = 5099.36
+2024-02-22 14:35:15,549 :INFO : test_dashboard_purchase : Purchase amount = 851.2
+2024-02-22 14:35:29,480 :INFO : test_dashboard_purchase : Final purchase amount on dashboard = 5950.56
+2024-02-22 14:35:44,102 :INFO : test_dashboard_sales : Initial sales amount = 10657.2
+2024-02-22 14:36:02,913 :INFO : test_dashboard_sales : Sales amount = 100.0
+2024-02-22 14:36:18,875 :INFO : test_dashboard_sales : Final sales amount = 10757.2
+2024-02-22 14:36:50,081 :INFO : test_login : Home page url -> https://alpha.1pharmacy.io/bill-entry/draft/1
+2024-02-22 14:37:11,816 :INFO : test_purchase : Quantity purchased = 10
+2024-02-22 14:37:26,119 :INFO : test_purchase : Latest purchase input in inventory = 10
+2024-02-22 14:44:08,070 :INFO : test_dashboard_purchase : Initial purchase amount on dashboard = 6745.76
+2024-02-22 14:44:18,405 :INFO : test_dashboard_purchase : Purchase amount = 851.2
+2024-02-22 14:44:32,321 :INFO : test_dashboard_purchase : Final purchase amount on dashboard = 7596.96
+2024-02-22 14:45:33,816 :INFO : test_billing : Sold quantity = 10
+2024-02-22 14:45:38,428 :INFO : test_billing : Expected Total = 1000.0
+2024-02-22 14:45:38,428 :INFO : test_billing : Actual Total = 1000.0
+2024-02-22 14:45:47,995 :INFO : test_billing : Original stock = 197
+2024-02-22 14:45:47,995 :INFO : test_billing : Remaining stock = 187
+2024-02-22 14:46:13,415 :INFO : test_billing : New batch name = JDc
+2024-02-22 14:46:13,415 :INFO : test_billing : New batch name = JDc
+2024-02-22 14:46:21,620 :INFO : test_billing : Sold quantity = 10
+2024-02-22 14:46:21,620 :INFO : test_billing : Sold quantity = 10
+2024-02-22 14:46:25,978 :INFO : test_billing : Expected Total = 1000.0
+2024-02-22 14:46:25,978 :INFO : test_billing : Expected Total = 1000.0
+2024-02-22 14:46:25,978 :INFO : test_billing : Actual Total = 1000.0
+2024-02-22 14:46:25,978 :INFO : test_billing : Actual Total = 1000.0
+2024-02-22 14:46:41,551 :INFO : test_billing : Remaining stock = -10
+2024-02-22 14:46:41,551 :INFO : test_billing : Remaining stock = -10
+2024-02-22 14:46:59,422 :INFO : test_dashboard_purchase : Initial purchase amount on dashboard = 7596.96
+2024-02-22 14:47:09,202 :INFO : test_dashboard_purchase : Purchase amount = 851.2
+2024-02-22 14:47:23,133 :INFO : test_dashboard_purchase : Final purchase amount on dashboard = 8448.16
+2024-02-22 14:47:38,728 :INFO : test_dashboard_sales : Initial sales amount = 12757.2
+2024-02-22 14:47:57,693 :INFO : test_dashboard_sales : Sales amount = 100.0
+2024-02-22 14:48:13,673 :INFO : test_dashboard_sales : Final sales amount = 12857.2
+2024-02-22 14:48:26,677 :INFO : test_login : Home page url -> https://alpha.1pharmacy.io/bill-entry/draft/1
+2024-02-22 14:48:47,006 :INFO : test_purchase : Quantity purchased = 10
+2024-02-22 14:49:00,986 :INFO : test_purchase : Latest purchase input in inventory = 10
+2024-02-22 14:49:26,029 :INFO : test_sales_return : Sales quantity = 10
+2024-02-22 14:49:26,130 :INFO : test_sales_return : Initial Stock = 503
+2024-02-22 14:49:44,290 :INFO : test_sales_return : Return quantity = 5
+2024-02-22 14:49:58,728 :INFO : test_sales_return : Final Stock (after sales and return) = 498
