@@ -18,6 +18,7 @@ class LoginUtil:
 
         # otp page
         otp_page = OtpPage(self.driver, self.config['wait'])
-        otp_page.enter_otp(self.config['first_digit'], self.config['second_digit'], self.config['third_digit'], self.config['fourth_digit'])
+        otp_page.enter_otp(self.config['first_digit'], self.config['second_digit'], self.config['third_digit'],
+                           self.config['fourth_digit'])
         otp_page.click_login()
         time.sleep(4)

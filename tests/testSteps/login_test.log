@@ -209,3 +209,8 @@
 2024-02-22 14:49:44,290 :INFO : test_sales_return : Return quantity = 5
 2024-02-22 14:49:58,728 :INFO : test_sales_return : Final Stock (after sales and return) = 498
 2024-02-22 15:52:59,040 :INFO : test_login : Home page url -> https://alpha.1pharmacy.io/bill-entry/draft/1
+2024-02-22 16:15:21,611 :INFO : test_billing : Sold quantity = 10
+2024-02-22 16:15:26,430 :INFO : test_billing : Expected Total = 1000.0
+2024-02-22 16:15:26,430 :INFO : test_billing : Actual Total = 1000.0
+2024-02-22 16:15:36,125 :INFO : test_billing : Original stock = 206
+2024-02-22 16:15:36,125 :INFO : test_billing : Remaining stock = 196

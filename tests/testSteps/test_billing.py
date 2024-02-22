@@ -8,6 +8,7 @@ from tests.pages.login_page import LoginPage
 from tests.pages.medicine_inventory_page import MedicineInventoryPage
 from tests.pages.otp_page import OtpPage
 from tests.testSteps.base_class import BaseClass
+from tests.utils.login_util import LoginUtil
 
 
 @pytest.mark.usefixtures("driver", "config")
@@ -17,13 +18,8 @@ class TestBilling(BaseClass):
         log = self.get_logger()
 
         # login
-        driver.get(config['1pharmacy_login_url'])
-        login_page = LoginPage(driver, config['wait'])
-        login_page.enter_phone_number(config['phone_number'])
-        login_page.click_otp_button()
-        otp_page = OtpPage(driver, config['wait'])
-        otp_page.enter_otp(config['first_digit'], config['second_digit'], config['third_digit'], config['fourth_digit'])
-        otp_page.click_login()
+        login_util = LoginUtil(driver, config)
+        login_util.login()
 
         # billing
         billing_page = BillingPage(driver)
