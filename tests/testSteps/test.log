@@ -252,3 +252,5 @@
 2024-02-22 17:36:30,799 :INFO : test_dashboard_purchase : Initial purchase amount on dashboard = 11852.96
 2024-02-22 17:36:40,482 :INFO : test_dashboard_purchase : Purchase amount = 851.2
 2024-02-22 17:36:54,379 :INFO : test_dashboard_purchase : Final purchase amount on dashboard = 12704.16
+2024-02-22 17:52:05,362 :INFO : test_purchase : Quantity purchased = 10
+2024-02-22 17:52:20,919 :INFO : test_purchase : Latest purchase input in inventory = 10

@@ -6,6 +6,7 @@ from tests.pages.otp_page import OtpPage
 from tests.pages.purchase_history_page import PurchaseHistoryPage
 from tests.pages.purchase_page import PurchasePage
 from tests.testSteps.base_class import BaseClass
+from tests.utils.login_util import LoginUtil
 
 
 class TestPurchase(BaseClass):
@@ -14,13 +15,8 @@ class TestPurchase(BaseClass):
         log = self.get_logger()
 
         # login
-        driver.get(config['1pharmacy_login_url'])
-        login_page = LoginPage(driver, config['wait'])
-        login_page.enter_phone_number(config['phone_number'])
-        login_page.click_otp_button()
-        otp_page = OtpPage(driver, config['wait'])
-        otp_page.enter_otp(config['first_digit'], config['second_digit'], config['third_digit'], config['fourth_digit'])
-        otp_page.click_login()
+        login_util = LoginUtil(driver, config)
+        login_util.login()
         time.sleep(5)
 
         # purchase
