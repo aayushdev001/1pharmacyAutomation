@@ -219,3 +219,12 @@
 2024-02-22 16:19:42,912 :INFO : test_billing : Expected Total = 1000.0
 2024-02-22 16:19:42,913 :INFO : test_billing : Actual Total = 1000.0
 2024-02-22 16:19:55,711 :INFO : test_billing : Remaining stock = -10
+2024-02-22 16:49:42,067 :INFO : test_dashboard_purchase : Initial purchase amount on dashboard = 9299.36
+2024-02-22 16:49:52,755 :INFO : test_dashboard_purchase : Purchase amount = 851.2
+2024-02-22 16:50:06,773 :INFO : test_dashboard_purchase : Final purchase amount on dashboard = 10150.56
+2024-02-22 16:58:22,086 :INFO : test_dashboard_purchase : Initial purchase amount on dashboard = 10150.56
+2024-02-22 16:58:32,516 :INFO : test_dashboard_purchase : Purchase amount = 851.2
+2024-02-22 16:58:46,382 :INFO : test_dashboard_purchase : Final purchase amount on dashboard = 11001.76
+2024-02-22 16:59:36,485 :INFO : test_dashboard_purchase : Initial purchase amount on dashboard = 11001.76
+2024-02-22 16:59:46,501 :INFO : test_dashboard_purchase : Purchase amount = 851.2
+2024-02-22 17:00:00,391 :INFO : test_dashboard_purchase : Final purchase amount on dashboard = 11852.96

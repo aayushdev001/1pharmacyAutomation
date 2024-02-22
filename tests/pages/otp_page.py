@@ -11,6 +11,16 @@ class OtpPage:
     def __init__(self, driver, wait):
         self.driver = driver
         self.wait = WebDriverWait(self.driver, wait)
+        self.first_digit_input = None
+        self.second_digit_input = None
+        self.third_digit_input = None
+        self.fourth_digit_input = None
+        self.login_button = None
+        self.dashboard_link = None
+        self.sidebar_xpath = None
+        self.sidebar = None
+
+    def enter_otp(self, first_digit, second_digit, third_digit, fourth_digit):
         self.first_digit_input = self.wait.until(EC.presence_of_element_located(
             (By.XPATH, '//body/div[@id="root"]/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[3]/div[1]/input[1]')))
         self.second_digit_input = self.wait.until(EC.presence_of_element_located(
@@ -21,11 +31,6 @@ class OtpPage:
             (By.XPATH, "//body/div[@id='root']/div[1]/div[2]/section[1]/div[1]/div[1]/div[1]/div[3]/div[1]/input[4]")))
         self.login_button = self.wait.until(
             EC.presence_of_element_located((By.XPATH, "//button[contains(text(),'Login')]")))
-        self.dashboard_link = None
-        self.sidebar_xpath = None
-        self.sidebar = None
-
-    def enter_otp(self, first_digit, second_digit, third_digit, fourth_digit):
         self.first_digit_input.send_keys(first_digit)
         self.second_digit_input.send_keys(second_digit)
         self.third_digit_input.send_keys(third_digit)

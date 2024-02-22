@@ -8,6 +8,7 @@ class LoginUtil:
     def __init__(self, driver, config):
         self.driver = driver
         self.config = config
+        self.otp_page = None
 
     def login(self):
         # login page
@@ -22,3 +23,7 @@ class LoginUtil:
                            self.config['fourth_digit'])
         otp_page.click_login()
         time.sleep(4)
+
+    def navigate_dashboard(self):
+        self.otp_page = OtpPage(self.driver, self.config['wait'])
+        self.otp_page.navigate_dashboard()
