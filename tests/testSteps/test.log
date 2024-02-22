@@ -214,3 +214,8 @@
 2024-02-22 16:15:26,430 :INFO : test_billing : Actual Total = 1000.0
 2024-02-22 16:15:36,125 :INFO : test_billing : Original stock = 206
 2024-02-22 16:15:36,125 :INFO : test_billing : Remaining stock = 196
+2024-02-22 16:19:30,349 :INFO : test_billing : New batch name = mXR
+2024-02-22 16:19:38,575 :INFO : test_billing : Sold quantity = 10
+2024-02-22 16:19:42,912 :INFO : test_billing : Expected Total = 1000.0
+2024-02-22 16:19:42,913 :INFO : test_billing : Actual Total = 1000.0
+2024-02-22 16:19:55,711 :INFO : test_billing : Remaining stock = -10
