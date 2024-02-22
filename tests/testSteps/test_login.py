@@ -3,8 +3,6 @@ import logging
 
 import pytest
 
-from tests.pages.login_page import LoginPage
-from tests.pages.otp_page import OtpPage
 from tests.testSteps.base_class import BaseClass
 from tests.utils.login_util import LoginUtil
 
