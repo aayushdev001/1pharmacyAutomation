@@ -79,11 +79,13 @@ class BillingPage:
         time.sleep(8)
 
     def get_strip(self):
-        stock_is_enabled = self.wait.until_not(EC.text_to_be_present_in_element((By.XPATH,
-                                                                                 '/html[1]/body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[11]'),
-                                                                                "-"))
+        # stock_is_enabled = self.wait.until_not(EC.text_to_be_present_in_element((By.XPATH,
+        #                                                                          '/html[1]/body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[11]'),
+                                                                                # "-"))
+        self.batch_input.click()
         self.stock = self.wait.until(EC.presence_of_element_located((By.XPATH,
-                                                                     '/html[1]/body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[11]')))
+                                                                     f"//div[text()='{self.default_batch_name}']/following::div[4]")))
+        print(self.stock.text)
         match = re.search(r'^(\d+)', self.stock.text)
         if match:
             self.quantity = int(match.group(1))
@@ -132,7 +134,7 @@ class BillingPage:
 
     def is_loose(self):
         self.strip_loose_toggle_wrapper = self.wait.until(EC.presence_of_element_located((By.XPATH,
-                                                                                          "//body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[9]/div[1]/div[1]/span[1]/span[1]")))
+                                                                                          "//body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/span[1]/span[1]")))
         return "Mui-checked" in self.strip_loose_toggle_wrapper.get_attribute('class')
 
     def toggle_strip_loose(self):

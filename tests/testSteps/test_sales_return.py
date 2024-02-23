@@ -10,6 +10,7 @@ from tests.pages.medicine_inventory_page import MedicineInventoryPage
 from tests.pages.otp_page import OtpPage
 from tests.pages.sales_return_page import SalesReturnPage
 from tests.testSteps.base_class import BaseClass
+from tests.utils.login_util import LoginUtil
 
 
 @pytest.mark.usefixtures("driver", "config")
@@ -19,19 +20,15 @@ class TestSalesReturn(BaseClass):
         log = self.get_logger()
 
         # login
-        driver.get(config['1pharmacy_login_url_ros'])
-        login_page = LoginPage(driver, config['wait'])
-        login_page.enter_phone_number(config['phone_number'])
-        login_page.click_otp_button()
-        otp_page = OtpPage(driver, config['wait'])
-        otp_page.enter_otp(config['first_digit'], config['second_digit'], config['third_digit'], config['fourth_digit'])
-        otp_page.click_login()
+        login_util = LoginUtil(driver, config)
+        login_util.login()
 
         # billing
         billing_page = BillingPage(driver)
         billing_page.select_product(config['search_keyword'], config['product_name'])
         time.sleep(4)
-        billing_page.toggle_strip_loose()
+        if billing_page.is_loose():
+            billing_page.toggle_strip_loose()
         billing_page.enter_quantity(config['item_quantity'])
         log.info(f"Sales quantity = {config['item_quantity']}")
         billing_page.read_default_batch()
@@ -45,7 +42,7 @@ class TestSalesReturn(BaseClass):
         billing_page.click_done()
 
         # bill history
-        driver.get(config['bill_history_url_ros'])
+        driver.get(config['bill_history_url'])
         bill_history_page = BillHistoryPage(driver)
         bill_history_page.click_latest_bill()
         bill_history_page.click_return()
@@ -66,7 +63,7 @@ class TestSalesReturn(BaseClass):
         time.sleep(5)
 
         # checking inventory
-        driver.get(config['bill_history_url_ros'])
+        driver.get(config['bill_history_url'])
         bill_history_page = BillHistoryPage(driver)
         bill_history_page.click_latest_bill()
         bill_history_page.click_medicine_link(config['product_name'])
