@@ -286,3 +286,7 @@
 2024-02-23 13:45:29,673 :INFO : test_billing : Actual Total = 1000.0
 2024-02-23 13:45:39,145 :INFO : test_billing : Original stock = 184
 2024-02-23 13:45:39,145 :INFO : test_billing : Remaining stock = 174
+2024-02-23 13:50:11,545 :INFO : test_sales_return : Sales quantity = 10
+2024-02-23 13:50:11,782 :INFO : test_sales_return : Initial Stock = 174
+2024-02-23 13:50:27,166 :INFO : test_sales_return : Return quantity = 5
+2024-02-23 13:50:38,365 :INFO : test_sales_return : Final Stock (after sales and return) = 169
