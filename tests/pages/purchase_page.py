@@ -1,6 +1,7 @@
 import re
 
 from selenium.webdriver import Keys
+from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -121,4 +122,9 @@ class PurchasePage:
         self.submit_button = self.wait.until(EC.presence_of_element_located((By.XPATH, '//body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/section[1]/div[2]/div[1]/button[2]')))
         self.submit_button.click()
 
+    def click_done(self):
+        # self.done_button = self.wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/div[3]/div[3]/div/div[2]/button[1]')))
+        # self.done_button.click()
+        # pyautogui.click(216,418)
+        webdriver.ActionChains(self.driver).send_keys(Keys.ESCAPE).perform()
 

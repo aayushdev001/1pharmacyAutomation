@@ -33,7 +33,7 @@ def config():
         "1pharmacy_login_url": 'https://alpha.1pharmacy.io/login',
         "1pharmacy_login_url_beta": "https://beta.pharmacyone.io",
         "1pharmacy_login_url_ros": "https://ros.1pharmacy.io/login",
-        "billing_url_alpha" : "https://alpha.1pharmacy.io/bill-entry/draft/1",
+        "billing_url_alpha": "https://alpha.1pharmacy.io/bill-entry/draft/1",
         "bill_history_url": 'https://alpha.1pharmacy.io/bill-history',
         "bill_history_url_ros": 'https://ros.1pharmacy.io/bill-history',
         "dashboard_url": "https://alpha.pharmacyone.io/dashboard",

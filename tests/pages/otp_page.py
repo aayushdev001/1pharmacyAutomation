@@ -40,15 +40,17 @@ class OtpPage:
         self.login_button.click()
 
     def navigate_dashboard(self):
-        if self.sidebar is None:
-            self.sidebar_xpath = '//*[@id="root"]/section/section'
-            self.sidebar = self.wait.until(EC.presence_of_element_located((By.XPATH, self.sidebar_xpath)))
+        self.sidebar_xpath = '//body[1]/div[1]/section[1]/section[1]'
+        self.sidebar = self.wait.until(EC.presence_of_element_located((By.XPATH, self.sidebar_xpath)))
 
         # hovering on the sidebar
-        action_chains = ActionChains(self.driver)
-        action_chains.move_to_element(self.sidebar)
-        pyautogui.moveTo(42, 206)
-        pyautogui.click(42, 206)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(self.sidebar).perform()
+
+        # action_chains = ActionChains(self.driver)
+        # action_chains.move_to_element(self.sidebar)
+        # pyautogui.moveTo(42, 206)
+        # pyautogui.click(42, 206)
         time.sleep(5)
 
         # clicking on the dashboard quicklink
@@ -58,7 +60,10 @@ class OtpPage:
         # action_chains.move_to_element(self.dashboard_link)
         # time.sleep(5)
         self.dashboard_link.click()
-        pyautogui.moveTo(1000, 300)
+        # pyautogui.moveTo(1000, 300)
 
     def navigate_billing_page(self):
         pyautogui.moveTo(5, 478)
+
+
+# //body[1]/div[1]/section[1]/section[1]

@@ -49,6 +49,8 @@ class TestDashboardPurchase(BaseClass):
         log.info(f"Purchase amount = {total_amount}")
         # time.sleep(5)
         purchase_page.click_submit()
+        time.sleep(3)
+        purchase_page.click_done()
         time.sleep(6)
 
         # asserting new sales and purchase amount
