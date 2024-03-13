@@ -27,14 +27,23 @@ class MedicineInventoryPage:
             (By.XPATH, '//*[@id="root"]/section/main/div[3]/div/div[2]/div[2]/label[1]/span[1]')))
         self.hide_zero_and_negative_stock_checkbox.click()
 
-    def get_remaining_stock(self, batch_name):
+    def get_remaining_stock_strip(self, batch_name):
         self.remaining_stock = self.wait.until(
             EC.presence_of_element_located((By.XPATH, f"//tr[td[contains(., '{batch_name}')]]//td[3]")))
-        # print(self.remaining_stock.text)
         match = re.match(r'^(-?\d+)', self.remaining_stock.text)
         if match:
             extracted_integer = int(match.group(0))
             return extracted_integer  # Output: -5
+        else:
+            return None
+
+    def get_remaining_stock_loose(self, batch_name):
+        self.remaining_stock = self.wait.until(
+            EC.presence_of_element_located((By.XPATH, f"//tr[td[contains(., '{batch_name}')]]//td[3]")))
+        pattern = r'\((\d+)\)'
+        match = re.search(pattern, self.remaining_stock.text)
+        if match:
+            return int(match.group(1))
         else:
             return None
 

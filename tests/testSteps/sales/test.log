@@ -1,0 +1,16 @@
+2024-03-13 12:58:38,956 :INFO : test_billing_loose : Sold quantity = 10
+2024-03-13 12:58:43,555 :INFO : test_billing_loose : Expected Total = 101.0
+2024-03-13 12:58:43,555 :INFO : test_billing_loose : Actual Total = 101.0
+2024-03-13 13:05:39,536 :INFO : test_billing_loose : Sold quantity = 10
+2024-03-13 13:05:44,018 :INFO : test_billing_loose : Expected Total = 101.0
+2024-03-13 13:05:44,018 :INFO : test_billing_loose : Actual Total = 101.0
+2024-03-13 13:05:54,492 :INFO : test_billing_loose : Original stock = 2910
+2024-03-13 13:05:54,492 :INFO : test_billing_loose : Remaining stock = 290
+2024-03-13 13:54:25,771 :INFO : test_billing_loose : Sold quantity = 10
+2024-03-13 13:54:30,246 :INFO : test_billing_loose : Expected Total = 101.0
+2024-03-13 13:54:30,254 :INFO : test_billing_loose : Actual Total = 101.0
+2024-03-13 14:03:01,697 :INFO : test_billing_loose : Sold quantity = 10
+2024-03-13 14:03:06,395 :INFO : test_billing_loose : Expected Total = 101.0
+2024-03-13 14:03:06,396 :INFO : test_billing_loose : Actual Total = 101.0
+2024-03-13 14:03:16,331 :INFO : test_billing_loose : Original stock = 2890
+2024-03-13 14:03:16,332 :INFO : test_billing_loose : Remaining stock = 2880

@@ -78,17 +78,27 @@ class BillingPage:
         self.quantity_input.send_keys(quantity)
         time.sleep(8)
 
-    def get_strip(self):
+    def get_strip_quantity(self):
         # stock_is_enabled = self.wait.until_not(EC.text_to_be_present_in_element((By.XPATH,
         #                                                                          '/html[1]/body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[11]'),
                                                                                 # "-"))
         self.batch_input.click()
         self.stock = self.wait.until(EC.presence_of_element_located((By.XPATH,
                                                                      f"//div[text()='{self.default_batch_name}']/following::div[4]")))
-        print(self.stock.text)
         match = re.search(r'^(\d+)', self.stock.text)
         if match:
             self.quantity = int(match.group(1))
+            return int(match.group(1))
+        else:
+            return None
+
+    def get_loose_quantity(self):
+        self.batch_input.click()
+        self.stock = self.wait.until(EC.presence_of_element_located((By.XPATH,
+                                                                     f"//div[text()='{self.default_batch_name}']/following::div[4]")))
+        pattern = r'\((\d+)\)'
+        match = re.search(pattern, self.stock.text)
+        if match:
             return int(match.group(1))
         else:
             return None
