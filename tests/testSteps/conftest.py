@@ -39,6 +39,7 @@ def config():
         "dashboard_url": "https://alpha.pharmacyone.io/dashboard",
         "purchase_url_alpha": "https://alpha.1pharmacy.io/purchase-entry",
         "purchase_history_url_alpha": "https://alpha.1pharmacy.io/purchase-history",
+        "settings_sales_url":"https://alpha.1pharmacy.io/settings?tabQuery=bill",
         "item_quantity": 10,
         "item_return_quantity": 5,
         "item_purchase_quantity": 10,

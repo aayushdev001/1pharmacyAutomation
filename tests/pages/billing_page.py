@@ -1,5 +1,6 @@
 import time
 
+from selenium.common import TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
@@ -35,6 +36,7 @@ class BillingPage:
         self.done_button = None
         self.strip_loose_toggle_wrapper = None
         self.strip_loose_toggle = None
+        self.strict_quantity_alert = None
         # self.delivery_charge_input = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="1p-basic-text"]')))
         # self.total_discount_input = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="1p-basic-text"]')))
         # self.bill_total = wait.until(EC.presence_of_element_located((By.XPATH,'//*[@id="root"]/section/main/section/div[3]/section/div[1]/div[1]/h6[2]')))
@@ -81,7 +83,7 @@ class BillingPage:
     def get_strip_quantity(self):
         # stock_is_enabled = self.wait.until_not(EC.text_to_be_present_in_element((By.XPATH,
         #                                                                          '/html[1]/body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[11]'),
-                                                                                # "-"))
+        # "-"))
         self.batch_input.click()
         self.stock = self.wait.until(EC.presence_of_element_located((By.XPATH,
                                                                      f"//div[text()='{self.default_batch_name}']/following::div[4]")))
@@ -151,3 +153,15 @@ class BillingPage:
         self.strip_loose_toggle = self.wait.until(
             EC.presence_of_element_located((By.XPATH, "//input[@name='looseEnabled']")))
         self.strip_loose_toggle.click()
+
+    def is_strict_quantity_alert(self):
+        try:
+            self.strict_quantity_alert = self.wait.until(
+                EC.presence_of_element_located(
+                    (By.XPATH, '//*[@id="root"]/div/div/div[2]')))
+            if "is greater than stock quantity" in self.strict_quantity_alert.text:
+                return True
+            else:
+                return False
+        except TimeoutException:
+            return False
