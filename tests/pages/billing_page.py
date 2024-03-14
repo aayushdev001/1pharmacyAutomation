@@ -6,7 +6,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import re
 from selenium.webdriver.common.keys import Keys
-import pyautogui
 from selenium import webdriver
 
 

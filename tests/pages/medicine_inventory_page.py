@@ -1,5 +1,6 @@
 import time
 
+from selenium.common import TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
@@ -13,13 +14,18 @@ class MedicineInventoryPage:
         self.wait = WebDriverWait(driver, 20)
         self.remaining_stock = None
         self.hide_zero_and_negative_stock_checkbox = None
-        self.batches_button = self.wait.until(EC.presence_of_element_located((By.XPATH,
-                                                                              "//body/div[@id='root']/section[1]/main[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/button[1]")))
+        self.batches_button = None
         self.medicine_link = None
         self.history_button = None
         self.latest_purchase_quantity = None
 
     def click_batches(self):
+        try:
+            self.batches_button = self.wait.until(EC.presence_of_element_located((By.XPATH,
+                                                                              "//body/div[@id='root']/section[1]/main[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/button[1]")))
+        except TimeoutException:
+            self.batches_button = self.wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/div[2]/div[3]/div/div/div[2]/div/div[2]/div[1]/div/div/button[1]')))
+
         self.batches_button.click()
 
     def show_zero_and_negative_stock(self):

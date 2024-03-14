@@ -19,3 +19,5 @@
 2024-03-14 11:17:34,752 :INFO : test_billing_expired_medicine : Sold quantity = 10
 2024-03-14 11:20:39,764 :INFO : test_billing_expired_medicine : Sold quantity = 10
 2024-03-14 11:22:56,759 :INFO : test_billing_expired_medicine : Sold quantity = 10
+2024-03-14 17:31:16,412 :INFO : test_scheduled_medicines : Original stock = 300
+2024-03-14 17:31:16,421 :INFO : test_scheduled_medicines : Remaining stock = 300
