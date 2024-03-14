@@ -51,6 +51,8 @@ def config():
         "custom_batch_name": generate_random_string(3),
         "product_name": "Dolfin Tablet",
         "search_keyword": "dolf",
+        "scheduled_product_name": "Krypton 360",
+        "scheduled_product_search_keyword": "kryp",
         "wait": 50
     }
 

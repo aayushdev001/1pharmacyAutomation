@@ -14,3 +14,8 @@
 2024-03-13 14:03:06,396 :INFO : test_billing_loose : Actual Total = 101.0
 2024-03-13 14:03:16,331 :INFO : test_billing_loose : Original stock = 2890
 2024-03-13 14:03:16,332 :INFO : test_billing_loose : Remaining stock = 2880
+2024-03-14 11:07:04,857 :INFO : test_billing_expired_medicine : Sold quantity = 10
+2024-03-14 11:13:21,758 :INFO : test_billing_expired_medicine : Sold quantity = 10
+2024-03-14 11:17:34,752 :INFO : test_billing_expired_medicine : Sold quantity = 10
+2024-03-14 11:20:39,764 :INFO : test_billing_expired_medicine : Sold quantity = 10
+2024-03-14 11:22:56,759 :INFO : test_billing_expired_medicine : Sold quantity = 10

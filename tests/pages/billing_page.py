@@ -36,7 +36,8 @@ class BillingPage:
         self.done_button = None
         self.strip_loose_toggle_wrapper = None
         self.strip_loose_toggle = None
-        self.strict_quantity_alert = None
+        self.bill_submit_alert = None
+        self.expiry_input = None
         # self.delivery_charge_input = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="1p-basic-text"]')))
         # self.total_discount_input = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="1p-basic-text"]')))
         # self.bill_total = wait.until(EC.presence_of_element_located((By.XPATH,'//*[@id="root"]/section/main/section/div[3]/section/div[1]/div[1]/h6[2]')))
@@ -73,7 +74,6 @@ class BillingPage:
         return self.default_batch_name
 
     def enter_quantity(self, quantity):
-        # self.strip_stock = self.get_strip()
         self.quantity = quantity
         self.quantity_input = self.wait.until(EC.element_to_be_clickable(
             (By.XPATH, '/html/body/div[1]/section/main/section/div[2]/div/table/tbody[1]/tr[1]/td[6]/div/div/input')))
@@ -81,9 +81,6 @@ class BillingPage:
         time.sleep(8)
 
     def get_strip_quantity(self):
-        # stock_is_enabled = self.wait.until_not(EC.text_to_be_present_in_element((By.XPATH,
-        #                                                                          '/html[1]/body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[11]'),
-        # "-"))
         self.batch_input.click()
         self.stock = self.wait.until(EC.presence_of_element_located((By.XPATH,
                                                                      f"//div[text()='{self.default_batch_name}']/following::div[4]")))
@@ -139,9 +136,6 @@ class BillingPage:
         self.submit_button.click()
 
     def click_done(self):
-        # self.done_button = self.wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/div[3]/div[3]/div/div[2]/button[1]')))
-        # self.done_button.click()
-        # pyautogui.click(216,418)
         webdriver.ActionChains(self.driver).send_keys(Keys.ESCAPE).perform()
 
     def is_loose(self):
@@ -156,12 +150,29 @@ class BillingPage:
 
     def is_strict_quantity_alert(self):
         try:
-            self.strict_quantity_alert = self.wait.until(
+            self.bill_submit_alert = self.wait.until(
                 EC.presence_of_element_located(
                     (By.XPATH, '//*[@id="root"]/div/div/div[2]')))
-            if "is greater than stock quantity" in self.strict_quantity_alert.text:
+            if "is greater than stock quantity" in self.bill_submit_alert.text:
                 return True
             else:
                 return False
         except TimeoutException:
             return False
+
+    def is_schedule_medicine_alert(self):
+        try:
+            self.bill_submit_alert = self.wait.until(
+                EC.presence_of_element_located(
+                    (By.XPATH, '//*[@id="root"]/div/div/div[2]')))
+            if "Please fill all the required fields" in self.bill_submit_alert.text:
+                return True
+            else:
+                return False
+        except TimeoutException:
+            return False
+
+    def enter_expiry(self, expiry):
+        self.expiry_input = self.wait.until(
+            EC.presence_of_element_located((By.XPATH, "//body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[5]/div[1]/div[1]/input[1]")))
+        self.expiry_input.send_keys(expiry)

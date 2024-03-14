@@ -10,8 +10,8 @@ from tests.testSteps.conftest import driver, config
 
 
 @pytest.mark.usefixtures("driver", "config")
-class TestStrictQuantityCheck(BaseClass):
-    def test_strict_quantity_check(self, driver, config):
+class TestScheduledMedicines(BaseClass):
+    def test_scheduled_medicines(self, driver, config):
         # report logging
         log = self.get_logger()
 
@@ -22,22 +22,15 @@ class TestStrictQuantityCheck(BaseClass):
         # settings
         driver.get(config['settings_sales_url'])
         settings_sales_page = SettingsSalesPage(driver)
-        if settings_sales_page.is_strict_quantity_check_on() is False:
-            settings_sales_page.toggle_strict_quantity()
+        if settings_sales_page.is_schedule_drug_warning_disabled():
+            settings_sales_page.toggle_schedule_drug_warning()
             settings_sales_page.save_settings()
 
         # billing
         driver.get(config['billing_url_alpha'])
         billing_page = BillingPage(driver)
-        billing_page.select_product(config['search_keyword'], config['product_name'])
-        time.sleep(4)
-
-        if billing_page.is_loose():
-            billing_page.toggle_strip_loose()
-
-        billing_page.read_default_batch()
-        available_strips = billing_page.get_strip_quantity()
-
-        billing_page.enter_quantity(f"{available_strips + 1}")
+        billing_page.select_product(config['scheduled_product_search_keyword'], config['scheduled_product_name'])
+        billing_page.enter_quantity(config['item_quantity'])
         billing_page.click_submit()
-        assert billing_page.is_strict_quantity_alert() == True
+        assert billing_page.is_schedule_medicine_alert() == True
+        time.sleep(4)
