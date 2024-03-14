@@ -29,7 +29,7 @@ class TestStrictQuantityCheck(BaseClass):
         # billing
         driver.get(config['billing_url_alpha'])
         billing_page = BillingPage(driver)
-        billing_page.select_product(config['search_keyword'], config['product_name'])
+        billing_page.select_first_product(config['search_keyword'], config['product_name'])
         time.sleep(4)
 
         if billing_page.is_loose():

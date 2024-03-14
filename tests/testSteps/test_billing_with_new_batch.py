@@ -20,7 +20,7 @@ class TestBillingWithNewBatch(BaseClass):
 
         # billing
         billing_page = BillingPage(driver)
-        billing_page.select_product(config['search_keyword'], config['product_name'])
+        billing_page.select_first_product(config['search_keyword'], config['product_name'])
         time.sleep(5)
         new_batch_name = config['custom_batch_name']
         billing_page.enter_batch(new_batch_name)

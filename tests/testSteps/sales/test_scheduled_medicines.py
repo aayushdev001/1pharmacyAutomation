@@ -29,7 +29,7 @@ class TestScheduledMedicines(BaseClass):
         # billing
         driver.get(config['billing_url_alpha'])
         billing_page = BillingPage(driver)
-        billing_page.select_product(config['scheduled_product_search_keyword'], config['scheduled_product_name'])
+        billing_page.select_first_product(config['scheduled_product_search_keyword'], config['scheduled_product_name'])
         billing_page.enter_quantity(config['item_quantity'])
         billing_page.click_submit()
         assert billing_page.is_schedule_medicine_alert() == True

@@ -25,7 +25,7 @@ class TestBillingExpiredMedicine(BaseClass):
 
         # billing
         billing_page = BillingPage(driver)
-        billing_page.select_product(config['search_keyword'], config['product_name'])
+        billing_page.select_first_product(config['search_keyword'], config['product_name'])
         time.sleep(4)
         billing_page.enter_quantity(config['item_quantity'])
         log.info(f"Sold quantity = {config['item_quantity']}")

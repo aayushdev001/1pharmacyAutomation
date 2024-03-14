@@ -14,17 +14,21 @@ class BillingPage:
     def __init__(self, driver):
         self.wait = WebDriverWait(driver, 20)
         self.driver = driver
-        self.product_input = self.wait.until(
+        self.first_product_input = self.wait.until(
             EC.presence_of_element_located((By.XPATH, '//*[@id="1p-basic-text"]')))
+        self.second_row = None
+        self.second_product_input = None
         self.batch_input = None
         self.default_batch_name = ""
         # self.discount_input = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="1p-basic-text"]')))
-        self.discount_input = None
+        self.first_discount_input = None
+        self.second_discount_input = None
         self.discount = 0
         # self.unit_mrp = wait.until(EC.presence_of_element_located((By.XPATH,'//*[@id=":rfc:"]/td[10]/div')))
-        self.unit_mrp_input = None
+        self.first_unit_mrp_input = None
         self.unit_mrp = 0
-        self.quantity_input = None
+        self.first_quantity_input = None
+        self.second_quantity_input = None
         self.quantity = 0
         self.stock = None
         self.strip_stock = 0
@@ -45,11 +49,11 @@ class BillingPage:
         # self.total_gst = wait.until(EC.presence_of_element_located((By.XPATH, '//body/div[@id="root"]/section[1]/main[1]/section[1]/div[3]/section[1]/div[1]/div[3]/h6[2]')))
         # self.net_amount = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="root"]/section/main/section/div[3]/section/div[1]/div[5]/h6[2]')))
 
-    def enter_product_name(self, keyword):
-        self.product_input.send_keys(keyword)
+    def enter_first_product_name(self, keyword):
+        self.first_product_input.send_keys(keyword)
 
-    def select_product(self, keyword, product_name):
-        self.enter_product_name(keyword)
+    def select_first_product(self, keyword, product_name):
+        self.enter_first_product_name(keyword)
         product = self.wait.until(
             EC.presence_of_element_located((By.XPATH, f"//span[contains(text(), '{product_name}')]")))
         product.click()
@@ -110,10 +114,10 @@ class BillingPage:
         return float(self.discount)
 
     def get_unit_mrp(self):
-        self.unit_mrp_input = self.wait.until(
+        self.first_unit_mrp_input = self.wait.until(
             EC.element_to_be_clickable((By.XPATH,
                                         "/html[1]/body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[8]/div[1]/div[1]/input[1]")))
-        self.unit_mrp = self.unit_mrp_input.get_attribute('value')
+        self.unit_mrp = self.first_unit_mrp_input.get_attribute('value')
         return float(self.unit_mrp)
 
     def get_gst(self):
@@ -161,6 +165,18 @@ class BillingPage:
             return False
 
     def is_schedule_medicine_alert(self):
+        try:
+            self.bill_submit_alert = self.wait.until(
+                EC.presence_of_element_located(
+                    (By.XPATH, '//*[@id="root"]/div/div/div[2]')))
+            if "Please fill all the required fields" in self.bill_submit_alert.text:
+                return True
+            else:
+                return False
+        except TimeoutException:
+            return False
+        
+    def is_missing_field_alert(self):
         try:
             self.bill_submit_alert = self.wait.until(
                 EC.presence_of_element_located(
