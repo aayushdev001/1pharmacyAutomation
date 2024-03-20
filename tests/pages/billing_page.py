@@ -41,12 +41,10 @@ class BillingPage:
         self.strip_loose_toggle = None
         self.bill_submit_alert = None
         self.expiry_input = None
-        # self.delivery_charge_input = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="1p-basic-text"]')))
-        # self.total_discount_input = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="1p-basic-text"]')))
-        # self.bill_total = wait.until(EC.presence_of_element_located((By.XPATH,'//*[@id="root"]/section/main/section/div[3]/section/div[1]/div[1]/h6[2]')))
-        # self.total_discount = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="root"]/section/main/section/div[3]/section/div[1]/div[2]/h6[2]')))
-        # self.total_gst = wait.until(EC.presence_of_element_located((By.XPATH, '//body/div[@id="root"]/section[1]/main[1]/section[1]/div[3]/section[1]/div[1]/div[3]/h6[2]')))
-        # self.net_amount = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="root"]/section/main/section/div[3]/section/div[1]/div[5]/h6[2]')))
+        self.customer_name_input = None
+        self.customer_mobile_input = None
+        self.customer_name = None
+        self.customer_mobile = None
 
     def enter_first_product_name(self, keyword):
         self.first_product_input.send_keys(keyword)
@@ -174,7 +172,7 @@ class BillingPage:
                 return False
         except TimeoutException:
             return False
-        
+
     def is_missing_field_alert(self):
         try:
             self.bill_submit_alert = self.wait.until(
@@ -189,5 +187,17 @@ class BillingPage:
 
     def enter_expiry(self, expiry):
         self.expiry_input = self.wait.until(
-            EC.presence_of_element_located((By.XPATH, "//body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[5]/div[1]/div[1]/input[1]")))
+            EC.presence_of_element_located((By.XPATH,
+                                            "//body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[5]/div[1]/div[1]/input[1]")))
         self.expiry_input.send_keys(expiry)
+
+    def select_customer_name(self, name):
+        self.customer_name_input = self.wait.until(EC.presence_of_element_located((By.XPATH,
+                                                                           '//body[1]/div[1]/section[1]/main[1]/section[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/input[1]')))
+        self.customer_name_input.click()
+        self.customer_name = self.wait.until(EC.presence_of_element_located((By.XPATH, f"//p[contains(text(),'{name}')]")))
+        self.customer_name.click()
+
+    def read_customer_number(self):
+        self.customer_mobile_input = self.wait.until(EC.presence_of_element_located((By.XPATH, '//body[1]/div[1]/section[1]/main[1]/section[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/input[1]')))
+        return self.customer_mobile_input.get_attribute('value')
