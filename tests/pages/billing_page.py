@@ -45,6 +45,8 @@ class BillingPage:
         self.customer_mobile_input = None
         self.customer_name = None
         self.customer_mobile = None
+        self.payment_type_input = None
+        self.card_payment_type = None
 
     def enter_first_product_name(self, keyword):
         self.first_product_input.send_keys(keyword)
@@ -212,3 +214,15 @@ class BillingPage:
         self.customer_name_input = self.customer_name_input = self.wait.until(EC.presence_of_element_located((By.XPATH,
                                                                            '//body[1]/div[1]/section[1]/main[1]/section[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/input[1]')))
         return self.customer_name_input.get_attribute('value')
+
+    def read_payment_type(self):
+        self.payment_type_input = self.wait.until(EC.presence_of_element_located((By.XPATH, '//body[1]/div[1]/section[1]/main[1]/section[1]/div[3]/div[1]/div[2]/div[8]/div[1]/div[1]/div[1]')))
+        return self.payment_type_input.text
+
+    def select_card_payment_type(self):
+        if self.payment_type_input is None:
+            self.payment_type_input = self.wait.until(EC.presence_of_element_located((By.XPATH,
+                                                                                      '//body[1]/div[1]/section[1]/main[1]/section[1]/div[3]/div[1]/div[2]/div[8]/div[1]/div[1]/div[1]')))
+        self.payment_type_input.click()
+        self.card_payment_type = self.wait.until(EC.presence_of_element_located((By.XPATH, "//li[@data-value='Card']")))
+        self.card_payment_type.click()

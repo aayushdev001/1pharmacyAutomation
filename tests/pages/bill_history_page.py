@@ -16,6 +16,7 @@ class BillHistoryPage:
         self.latest_bill_quantity = None
         self.medicine_link = None
         self.return_button = None
+        self.payment_type = None
 
     def click_latest_bill(self):
         self.latest_bill.click()
@@ -32,3 +33,7 @@ class BillHistoryPage:
     def click_return(self):
         self.return_button = self.wait.until((EC.presence_of_element_located((By.XPATH, "//body/div[@id='root']/section[1]/main[1]/div[3]/div[1]/div[3]/div[2]/button[1]"))))
         self.return_button.click()
+
+    def get_payment_type(self):
+        self.payment_type = self.wait.until(EC.presence_of_element_located((By.XPATH, '//body[1]/div[1]/section[1]/main[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]')))
+        return self.payment_type.text
