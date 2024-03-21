@@ -198,6 +198,17 @@ class BillingPage:
         self.customer_name = self.wait.until(EC.presence_of_element_located((By.XPATH, f"//p[contains(text(),'{name}')]")))
         self.customer_name.click()
 
+    def select_customer_mobile_number(self, number):
+        self.customer_mobile_input = self.wait.until(EC.presence_of_element_located((By.XPATH, '//body[1]/div[1]/section[1]/main[1]/section[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/input[1]')))
+        self.customer_name_input.click()
+        self.customer_mobile = self.wait.until(EC.presence_of_element_located((By.XPATH, f"//p[contains(text(),'{number}')]")))
+        self.customer_mobile.click()
+
     def read_customer_number(self):
         self.customer_mobile_input = self.wait.until(EC.presence_of_element_located((By.XPATH, '//body[1]/div[1]/section[1]/main[1]/section[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/input[1]')))
         return self.customer_mobile_input.get_attribute('value')
+
+    def read_customer_name(self):
+        self.customer_name_input = self.customer_name_input = self.wait.until(EC.presence_of_element_located((By.XPATH,
+                                                                           '//body[1]/div[1]/section[1]/main[1]/section[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/input[1]')))
+        return self.customer_name_input.get_attribute('value')
