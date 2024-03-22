@@ -26,18 +26,18 @@ class TestBillingLoose(BaseClass):
         billing_page = BillingPage(driver)
         billing_page.select_first_product(config['search_keyword'], config['product_name'])
         time.sleep(4)
-        billing_page.enter_quantity(config['item_quantity'])
+        billing_page.enter_first_quantity(config['item_quantity'])
         log.info(f"Sold quantity = {config['item_quantity']}")
 
-        if billing_page.is_loose() is False:
-            billing_page.toggle_strip_loose()
+        if billing_page.is_first_medicine_loose() is False:
+            billing_page.toggle_first_medicine_strip_loose()
 
-        billing_page.read_default_batch()
-        available_loose = billing_page.get_loose_quantity()
+        billing_page.read_first_default_batch()
+        available_loose = billing_page.get_first_loose_quantity()
         time.sleep(4)
-        expected_total = config['item_quantity'] * billing_page.get_unit_mrp() * (
-                1 - (billing_page.get_discount() / 100))
-        actual_total = billing_page.get_item_total()
+        expected_total = config['item_quantity'] * billing_page.get_first_unit_mrp() * (
+                1 - (billing_page.get_first_discount() / 100))
+        actual_total = billing_page.get_first_item_total()
         log.info(f"Expected Total = {expected_total}")
         log.info(f"Actual Total = {actual_total}")
         assert expected_total == actual_total
@@ -53,7 +53,7 @@ class TestBillingLoose(BaseClass):
         # medicine inventory
         medicine_inventory_page = MedicineInventoryPage(driver)
         medicine_inventory_page.click_batches()
-        remaining_stock = medicine_inventory_page.get_remaining_stock_loose(billing_page.get_default_batch())
+        remaining_stock = medicine_inventory_page.get_remaining_stock_loose(billing_page.get_first_default_batch())
         log.info(f"Original stock = {available_loose}")
         log.info(f"Remaining stock = {remaining_stock}")
         assert remaining_stock == available_loose - config['item_quantity']

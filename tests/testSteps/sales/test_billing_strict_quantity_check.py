@@ -32,12 +32,12 @@ class TestStrictQuantityCheck(BaseClass):
         billing_page.select_first_product(config['search_keyword'], config['product_name'])
         time.sleep(4)
 
-        if billing_page.is_loose():
-            billing_page.toggle_strip_loose()
+        if billing_page.is_first_medicine_loose():
+            billing_page.toggle_first_medicine_strip_loose()
 
-        billing_page.read_default_batch()
-        available_strips = billing_page.get_strip_quantity()
+        billing_page.read_first_default_batch()
+        available_strips = billing_page.get_first_strip_quantity()
 
-        billing_page.enter_quantity(f"{available_strips + 1}")
+        billing_page.enter_first_quantity(f"{available_strips + 1}")
         billing_page.click_submit()
         assert billing_page.is_strict_quantity_alert() == True

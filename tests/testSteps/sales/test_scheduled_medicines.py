@@ -33,11 +33,11 @@ class TestScheduledMedicines(BaseClass):
         driver.get(config['billing_url_alpha'])
         billing_page = BillingPage(driver)
         billing_page.select_first_product(config['scheduled_product_search_keyword'], config['scheduled_product_name'])
-        billing_page.enter_quantity(config['item_quantity'])
-        if billing_page.is_loose():
-            billing_page.toggle_strip_loose()
-        billing_page.read_default_batch()
-        available_strips = billing_page.get_strip_quantity()
+        billing_page.enter_first_quantity(config['item_quantity'])
+        if billing_page.is_first_medicine_loose():
+            billing_page.toggle_first_medicine_strip_loose()
+        billing_page.read_first_default_batch()
+        available_strips = billing_page.get_first_strip_quantity()
         billing_page.click_submit()
         assert billing_page.is_schedule_medicine_alert() == True
         time.sleep(4)
@@ -52,7 +52,7 @@ class TestScheduledMedicines(BaseClass):
         # medicine inventory
         medicine_inventory_page = MedicineInventoryPage(driver)
         medicine_inventory_page.click_batches()
-        remaining_stock = medicine_inventory_page.get_remaining_stock_strip(billing_page.get_default_batch())
+        remaining_stock = medicine_inventory_page.get_remaining_stock_strip(billing_page.get_first_default_batch())
         log.info(f"Original stock = {available_strips}")
         log.info(f"Remaining stock = {remaining_stock}")
         assert remaining_stock == available_strips

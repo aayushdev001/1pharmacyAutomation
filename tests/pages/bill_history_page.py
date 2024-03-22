@@ -15,6 +15,7 @@ class BillHistoryPage:
             (By.XPATH, '//*[@id="root"]/section/main/div[3]/div[2]/div/div[2]/table/tbody/tr')))
         self.latest_bill_quantity = None
         self.medicine_link = None
+        self.second_medicine_link = None
         self.return_button = None
         self.payment_type = None
 
@@ -29,6 +30,7 @@ class BillHistoryPage:
     def click_medicine_link(self, product_name):
         self.medicine_link = self.wait.until(EC.presence_of_element_located((By.LINK_TEXT, f'{product_name}')))
         self.medicine_link.click()
+
 
     def click_return(self):
         self.return_button = self.wait.until((EC.presence_of_element_located((By.XPATH, "//body/div[@id='root']/section[1]/main[1]/div[3]/div[1]/div[3]/div[2]/button[1]"))))

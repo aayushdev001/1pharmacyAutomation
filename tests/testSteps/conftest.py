@@ -52,6 +52,8 @@ def config():
         "custom_batch_name": generate_random_string(3),
         "product_name": "Dolfin Tablet",
         "search_keyword": "dolf",
+        "second_product_name": "Dolo Pain Relief Spray",
+        "second_search_keyword": "dolo",
         "scheduled_product_name": "Krypton 360",
         "scheduled_product_search_keyword": "kryp",
         "customer_name": "Aayush A",
