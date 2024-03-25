@@ -25,6 +25,7 @@ class BillingPage:
         self.second_default_batch_name = ""
         self.first_discount_input = None
         self.second_discount_input = None
+        self.overall_discount_input = None
         self.discount = 0
         self.first_unit_mrp_input = None
         self.first_unit_mrp = 0
@@ -50,6 +51,7 @@ class BillingPage:
         self.customer_mobile = None
         self.payment_type_input = None
         self.card_payment_type = None
+        self.reset_button = None
 
     def enter_first_product_name(self, keyword):
         self.first_product_input.send_keys(keyword)
@@ -196,6 +198,10 @@ class BillingPage:
         amount = self.second_item_total.text.replace('₹', '').replace(',', '')
         return float(amount)
 
+    def enter_overall_discount(self, disc):
+        self.overall_discount_input = self.wait.until(EC.presence_of_element_located((By.XPATH, '//body[1]/div[1]/section[1]/main[1]/section[1]/div[3]/div[1]/div[2]/div[6]/div[1]/div[1]/input[1]')))
+        self.overall_discount_input.send_keys(disc)
+
     def click_submit(self):
         self.submit_button.click()
 
@@ -258,6 +264,18 @@ class BillingPage:
         except TimeoutException:
             return False
 
+    def is_reset_bill_alert(self):
+        try:
+            self.bill_submit_alert = self.wait.until(
+                EC.presence_of_element_located(
+                    (By.XPATH, '//*[@id="root"]/div/div/div[2]')))
+            if "Bill Draft reset successfully" in self.bill_submit_alert.text:
+                return True
+            else:
+                return False
+        except TimeoutException:
+            return False
+
     def enter_first_medicine_expiry(self, expiry):
         self.expiry_input = self.wait.until(
             EC.presence_of_element_located((By.XPATH,
@@ -302,3 +320,9 @@ class BillingPage:
         self.payment_type_input.click()
         self.card_payment_type = self.wait.until(EC.presence_of_element_located((By.XPATH, "//li[@data-value='Card']")))
         self.card_payment_type.click()
+
+    def reset_bill(self):
+        self.reset_button = self.wait.until(EC.presence_of_element_located((By.XPATH, "//div[contains(text(), 'Reset')]")))
+        self.reset_button.click()
+        webdriver.ActionChains(self.driver).send_keys(Keys.ENTER).perform()
+

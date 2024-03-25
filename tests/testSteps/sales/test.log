@@ -148,3 +148,8 @@
 2024-03-22 15:54:14,418 :INFO : test_first_medicine_strip_and_second_medicine_loose : Remaining stock = 195
 2024-03-22 15:54:18,322 :INFO : test_first_medicine_strip_and_second_medicine_loose : Original stock = 7382
 2024-03-22 15:54:18,322 :INFO : test_first_medicine_strip_and_second_medicine_loose : Remaining stock = 7372
+2024-03-25 10:37:30,912 :INFO : test_billing_loose : Sold quantity = 10
+2024-03-25 10:37:35,634 :INFO : test_billing_loose : Expected Total = 101.0
+2024-03-25 10:37:35,634 :INFO : test_billing_loose : Actual Total = 101.0
+2024-03-25 10:37:45,836 :INFO : test_billing_loose : Original stock = 1950
+2024-03-25 10:37:45,837 :INFO : test_billing_loose : Remaining stock = 1940
