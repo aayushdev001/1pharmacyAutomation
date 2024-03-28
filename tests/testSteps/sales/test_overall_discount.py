@@ -1,0 +1,82 @@
+import time
+
+import pytest
+
+from tests.pages.bill_history_page import BillHistoryPage
+from tests.pages.billing_page import BillingPage
+from tests.pages.login_page import LoginPage
+from tests.pages.medicine_inventory_page import MedicineInventoryPage
+from tests.pages.otp_page import OtpPage
+from tests.testSteps.base_class import BaseClass
+from tests.utils.login_util import LoginUtil
+from tests.testSteps.conftest import driver, config
+
+
+@pytest.mark.usefixtures("driver", "config")
+class TestOverallDiscount(BaseClass):
+    def test_overall_discount(self, driver, config):
+        # report logging
+        log = self.get_logger()
+
+        # login
+        login_util = LoginUtil(driver, config)
+        login_util.login()
+
+        # billing 1st item
+        billing_page = BillingPage(driver)
+        billing_page.select_first_product(config['search_keyword'], config['product_name'])
+        time.sleep(4)
+        billing_page.enter_first_quantity(config['item_quantity'])
+        log.info(f"Sold quantity = {config['item_quantity']}")
+
+        if billing_page.is_first_medicine_loose():
+            billing_page.toggle_first_medicine_strip_loose()
+
+        billing_page.read_first_default_batch()
+        available_strips = billing_page.get_first_strip_quantity()
+        time.sleep(4)
+        expected_total = config['item_quantity'] * billing_page.get_first_unit_mrp() * (
+                1 - (billing_page.get_first_discount() / 100))
+        actual_total = billing_page.get_first_item_total()
+        log.info(f"Expected Total = {expected_total}")
+        log.info(f"Actual Total = {actual_total}")
+        time.sleep(10)
+        assert expected_total == actual_total
+        total_mrp = 0
+        current_total = 0
+        total_mrp += billing_page.get_first_unit_mrp()*config['item_quantity']
+        current_total += actual_total
+
+        # billing 2nd item
+        billing_page.select_second_product(config['second_search_keyword'], config['second_product_name'])
+        time.sleep(4)
+        billing_page.enter_second_quantity(config['item_quantity'])
+        log.info(f"Sold quantity = {config['item_quantity']}")
+
+        if billing_page.is_second_medicine_loose() is False:
+            billing_page.toggle_second_medicine_strip_loose()
+
+        billing_page.read_second_default_batch()
+        available_loose = billing_page.get_second_loose_quantity()
+        time.sleep(4)
+        expected_total = config['item_quantity'] * billing_page.get_second_unit_mrp() * (
+                1 - (billing_page.get_second_discount() / 100))
+        actual_total = billing_page.get_second_item_total()
+        log.info(f"Expected Total = {expected_total}")
+        log.info(f"Actual Total = {actual_total}")
+        assert expected_total == actual_total
+        total_mrp += billing_page.get_second_unit_mrp()*config['item_quantity']
+        current_total += actual_total
+
+        billing_page.enter_overall_discount(config['overall_sales_discount'])
+        net_total = billing_page.get_net_total()
+        time.sleep(3)
+        assert round(current_total - total_mrp * config['overall_sales_discount'] / 100) == net_total
+
+        billing_page.click_submit()
+        time.sleep(5)
+
+        # bill history
+        driver.get(config['bill_history_url'])
+        bill_history_page = BillHistoryPage(driver)
+        assert bill_history_page.get_latest_bill_net_amount() == net_total

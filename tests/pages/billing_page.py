@@ -52,6 +52,7 @@ class BillingPage:
         self.payment_type_input = None
         self.card_payment_type = None
         self.reset_button = None
+        self.net_total = None
 
     def enter_first_product_name(self, keyword):
         self.first_product_input.send_keys(keyword)
@@ -160,7 +161,7 @@ class BillingPage:
     def get_first_discount(self):
         self.first_discount_input = self.wait.until(
             EC.element_to_be_clickable((By.XPATH,
-                                        "/html[1]/body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[7]/div[1]/div[1]/input[1]")))
+                                        "//body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[7]/div[1]/div[1]/input[1]")))
         self.discount = self.first_discount_input.get_attribute('value')
         return float(self.discount)
 
@@ -174,12 +175,13 @@ class BillingPage:
     def get_first_unit_mrp(self):
         self.first_unit_mrp_input = self.wait.until(
             EC.element_to_be_clickable((By.XPATH,
-                                        "/html[1]/body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[8]/div[1]/div[1]/input[1]")))
+                                        "//body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[9]/div[1]/div[1]/input[1]")))
         self.first_unit_mrp = self.first_unit_mrp_input.get_attribute('value')
         return float(self.first_unit_mrp)
 
     def get_second_unit_mrp(self):
-        self.second_unit_mrp_input = self.wait.until(EC.element_to_be_clickable((By.XPATH, '//body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[2]/td[9]/div[1]/div[1]/input[1]')))
+        self.second_unit_mrp_input = self.wait.until(EC.element_to_be_clickable((By.XPATH,
+                                                                                 '//body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[2]/td[9]/div[1]/div[1]/input[1]')))
         second_unit_mrp = self.second_unit_mrp_input.get_attribute('value')
         return float(second_unit_mrp)
 
@@ -189,17 +191,20 @@ class BillingPage:
 
     def get_first_item_total(self):
         self.first_item_total = self.wait.until(EC.presence_of_element_located((By.XPATH,
-                                                                          '//body[1]/div[1]/section[1]/main[1]/section[1]/div[3]/section[1]/div[1]/div[5]/h6[2]')))
+                                                                                '//body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[16]')))
         amount = self.first_item_total.text.replace('₹', '').replace(',', '')
         return float(amount)
 
     def get_second_item_total(self):
-        self.second_item_total = self.wait.until(EC.presence_of_element_located((By.XPATH, '//body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[2]/td[16]')))
+        self.second_item_total = self.wait.until(EC.presence_of_element_located(
+            (By.XPATH, '//body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[2]/td[16]')))
         amount = self.second_item_total.text.replace('₹', '').replace(',', '')
         return float(amount)
 
     def enter_overall_discount(self, disc):
-        self.overall_discount_input = self.wait.until(EC.presence_of_element_located((By.XPATH, '//body[1]/div[1]/section[1]/main[1]/section[1]/div[3]/div[1]/div[2]/div[6]/div[1]/div[1]/input[1]')))
+        self.overall_discount_input = self.wait.until(EC.element_to_be_clickable((By.XPATH,
+                                                                                      '//body[1]/div[1]/section[1]/main[1]/section[1]/div[3]/div[1]/div[2]/div[6]/div[1]/div[1]/input[1]')))
+        self.overall_discount_input.click()
         self.overall_discount_input.send_keys(disc)
 
     def click_submit(self):
@@ -210,16 +215,18 @@ class BillingPage:
 
     def is_first_medicine_loose(self):
         self.first_strip_loose_toggle_wrapper = self.wait.until(EC.presence_of_element_located((By.XPATH,
-                                                                                          "//body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/span[1]/span[1]")))
+                                                                                                "//body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/span[1]/span[1]")))
         return "Mui-checked" in self.first_strip_loose_toggle_wrapper.get_attribute('class')
 
     def is_second_medicine_loose(self):
-        self.second_strip_loose_toggle_wrapper = self.wait.until(EC.presence_of_element_located((By.XPATH, '//body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[2]/td[10]/div[1]/div[1]/span[1]/span[1]')))
+        self.second_strip_loose_toggle_wrapper = self.wait.until(EC.presence_of_element_located((By.XPATH,
+                                                                                                 '//body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[2]/td[10]/div[1]/div[1]/span[1]/span[1]')))
         return "Mui-checked" in self.second_strip_loose_toggle_wrapper.get_attribute('class')
 
     def toggle_first_medicine_strip_loose(self):
         self.first_strip_loose_toggle = self.wait.until(
-            EC.presence_of_element_located((By.XPATH, "//body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/span[1]/span[1]/input[1]")))
+            EC.presence_of_element_located((By.XPATH,
+                                            "//body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/span[1]/span[1]/input[1]")))
         self.first_strip_loose_toggle.click()
 
     def toggle_second_medicine_strip_loose(self):
@@ -322,7 +329,13 @@ class BillingPage:
         self.card_payment_type.click()
 
     def reset_bill(self):
-        self.reset_button = self.wait.until(EC.presence_of_element_located((By.XPATH, "//div[contains(text(), 'Reset')]")))
+        self.reset_button = self.wait.until(
+            EC.presence_of_element_located((By.XPATH, "//div[contains(text(), 'Reset')]")))
         self.reset_button.click()
         webdriver.ActionChains(self.driver).send_keys(Keys.ENTER).perform()
 
+    def get_net_total(self):
+        self.net_total = self.wait.until(EC.presence_of_element_located(
+            (By.XPATH, '//body[1]/div[1]/section[1]/main[1]/section[1]/div[3]/section[1]/div[1]/div[5]/h6[2]')))
+        amount = self.net_total.text.replace('₹', '').replace(',', '')
+        return float(amount)

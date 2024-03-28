@@ -60,6 +60,7 @@ class TestFirstMedicineStripAndStripLoose(BaseClass):
         log.info(f"Expected Total = {expected_total}")
         log.info(f"Actual Total = {actual_total}")
         assert expected_total == actual_total
+
         billing_page.click_submit()
         time.sleep(5)
 

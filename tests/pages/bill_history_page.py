@@ -18,6 +18,7 @@ class BillHistoryPage:
         self.second_medicine_link = None
         self.return_button = None
         self.payment_type = None
+        self.first_bill_net_amount = None
 
     def click_latest_bill(self):
         self.latest_bill.click()
@@ -31,11 +32,17 @@ class BillHistoryPage:
         self.medicine_link = self.wait.until(EC.presence_of_element_located((By.LINK_TEXT, f'{product_name}')))
         self.medicine_link.click()
 
-
     def click_return(self):
-        self.return_button = self.wait.until((EC.presence_of_element_located((By.XPATH, "//body/div[@id='root']/section[1]/main[1]/div[3]/div[1]/div[3]/div[2]/button[1]"))))
+        self.return_button = self.wait.until((EC.presence_of_element_located(
+            (By.XPATH, "//body/div[@id='root']/section[1]/main[1]/div[3]/div[1]/div[3]/div[2]/button[1]"))))
         self.return_button.click()
 
     def get_payment_type(self):
-        self.payment_type = self.wait.until(EC.presence_of_element_located((By.XPATH, '//body[1]/div[1]/section[1]/main[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]')))
+        self.payment_type = self.wait.until(EC.presence_of_element_located(
+            (By.XPATH, '//body[1]/div[1]/section[1]/main[1]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/span[1]')))
         return self.payment_type.text
+
+    def get_latest_bill_net_amount(self):
+        self.first_bill_net_amount = self.wait.until(EC.presence_of_element_located((By.XPATH, '//body[1]/div[1]/section[1]/main[1]/div[3]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[9]')))
+        amount = self.first_bill_net_amount.text.replace('₹', '').replace(',', '')
+        return float(amount)
