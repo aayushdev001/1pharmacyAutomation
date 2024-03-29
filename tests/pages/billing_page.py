@@ -160,13 +160,13 @@ class BillingPage:
     def get_first_discount(self):
         self.first_discount_input = self.wait.until(
             EC.element_to_be_clickable((By.XPATH,
-                                        "//body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[7]/div[1]/div[1]/input[1]")))
+                                        "(//*[@name='discount'])[1]")))
         self.discount = self.first_discount_input.get_attribute('value')
         return float(self.discount)
 
     def get_second_discount(self):
         self.second_discount_input = self.wait.until(EC.element_to_be_clickable((By.XPATH,
-                                                                                 '//body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[2]/td[7]/div[1]/div[1]/input[1]')))
+                                                                                 "(//*[@name='discount'])[1]")))
         # self.second_discount_input.send_keys(15)
         discount = self.second_discount_input.get_attribute('value')
         return float(discount)
@@ -202,7 +202,7 @@ class BillingPage:
 
     def enter_overall_discount(self, disc):
         self.overall_discount_input = self.wait.until(EC.element_to_be_clickable((By.XPATH,
-                                                                                      '//body[1]/div[1]/section[1]/main[1]/section[1]/div[3]/div[1]/div[2]/div[6]/div[1]/div[1]/input[1]')))
+                                                                                      "(//*[@name='discountPercent'])")))
         self.overall_discount_input.click()
         self.overall_discount_input.send_keys(disc)
 
