@@ -106,12 +106,11 @@ class BillingPage:
 
     def enter_first_quantity(self, quantity):
         self.first_quantity_input = self.wait.until(EC.element_to_be_clickable(
-            (By.XPATH, '/html/body/div[1]/section/main/section/div[2]/div/table/tbody[1]/tr[1]/td[6]/div/div/input')))
+            (By.XPATH, "//*[@name='billQty']")))
         self.first_quantity_input.send_keys(quantity)
 
     def enter_second_quantity(self, quantity):
-        self.second_quantity_input = self.wait.until(EC.element_to_be_clickable((By.XPATH,
-                                                                                 '//body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[2]/td[6]/div[1]/div[1]/input[1]')))
+        self.second_quantity_input = self.wait.until(EC.element_to_be_clickable((By.XPATH, "//*[@name='billQty']")))
         self.second_quantity_input.send_keys(quantity)
 
     def get_first_strip_quantity(self):

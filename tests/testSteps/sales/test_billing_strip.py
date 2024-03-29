@@ -9,6 +9,7 @@ from tests.pages.medicine_inventory_page import MedicineInventoryPage
 from tests.pages.otp_page import OtpPage
 from tests.testSteps.base_class import BaseClass
 from tests.utils.login_util import LoginUtil
+from tests.testSteps.conftest import driver, config
 
 
 @pytest.mark.usefixtures("driver", "config")
