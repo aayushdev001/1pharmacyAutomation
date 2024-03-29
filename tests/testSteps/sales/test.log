@@ -292,3 +292,13 @@
 2024-03-29 11:14:45,073 :INFO : test_first_medicine_strip_and_second_medicine_loose : Remaining stock = 480
 2024-03-29 11:14:48,862 :INFO : test_first_medicine_strip_and_second_medicine_loose : Original stock = 780
 2024-03-29 11:14:48,862 :INFO : test_first_medicine_strip_and_second_medicine_loose : Remaining stock = 770
+2024-03-29 11:29:49,777 :INFO : test_first_medicine_strip_and_second_medicine_loose : Sold quantity = 10
+2024-03-29 11:29:54,687 :INFO : test_first_medicine_strip_and_second_medicine_loose : Expected Total = 135.0
+2024-03-29 11:29:54,688 :INFO : test_first_medicine_strip_and_second_medicine_loose : Actual Total = 135.0
+2024-03-29 11:30:00,055 :INFO : test_first_medicine_strip_and_second_medicine_loose : Sold quantity = 10
+2024-03-29 11:30:04,733 :INFO : test_first_medicine_strip_and_second_medicine_loose : Expected Total = 375.75
+2024-03-29 11:30:04,733 :INFO : test_first_medicine_strip_and_second_medicine_loose : Actual Total = 375.75
+2024-03-29 11:30:14,525 :INFO : test_first_medicine_strip_and_second_medicine_loose : Original stock = 480
+2024-03-29 11:30:14,525 :INFO : test_first_medicine_strip_and_second_medicine_loose : Remaining stock = 470
+2024-03-29 11:30:18,318 :INFO : test_first_medicine_strip_and_second_medicine_loose : Original stock = 770
+2024-03-29 11:30:18,318 :INFO : test_first_medicine_strip_and_second_medicine_loose : Remaining stock = 760

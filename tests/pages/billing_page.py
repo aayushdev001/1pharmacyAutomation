@@ -225,14 +225,14 @@ class BillingPage:
     def toggle_first_medicine_strip_loose(self):
         self.first_strip_loose_toggle = self.wait.until(
             EC.presence_of_element_located((By.XPATH,
-                                            "//body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/span[1]/span[1]/input[1]")))
+                                            "(//*[@name='looseEnabled'])[1]")))
         self.first_strip_loose_toggle.click()
 
     def toggle_second_medicine_strip_loose(self):
-        # self.second_strip_loose_toggle = self.wait.until(
-        #     EC.element_to_be_clickable((By.XPATH, "(//input[@name='looseEnabled'])[1]")))
-        # self.second_strip_loose_toggle.click()
-        self.second_strip_loose_toggle_wrapper.click()
+        self.second_strip_loose_toggle = self.wait.until(
+            EC.element_to_be_clickable((By.XPATH, "(//*[@name='looseEnabled'])[2]")))
+        self.second_strip_loose_toggle.click()
+        # self.second_strip_loose_toggle_wrapper.click()
 
     def is_strict_quantity_alert(self):
         try:
