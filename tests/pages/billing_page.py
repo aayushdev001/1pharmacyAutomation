@@ -51,6 +51,7 @@ class BillingPage:
         self.customer_mobile = None
         self.payment_type_input = None
         self.card_payment_type = None
+        self.delete_button = None
         self.reset_button = None
         self.net_total = None
 
@@ -174,13 +175,13 @@ class BillingPage:
     def get_first_unit_mrp(self):
         self.first_unit_mrp_input = self.wait.until(
             EC.element_to_be_clickable((By.XPATH,
-                                        "//body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[9]/div[1]/div[1]/input[1]")))
+                                        "(//*[@name='price'])")))
         self.first_unit_mrp = self.first_unit_mrp_input.get_attribute('value')
         return float(self.first_unit_mrp)
 
     def get_second_unit_mrp(self):
         self.second_unit_mrp_input = self.wait.until(EC.element_to_be_clickable((By.XPATH,
-                                                                                 '//body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[2]/td[9]/div[1]/div[1]/input[1]')))
+                                                                                 "(//*[@name='price'])")))
         second_unit_mrp = self.second_unit_mrp_input.get_attribute('value')
         return float(second_unit_mrp)
 
@@ -316,13 +317,13 @@ class BillingPage:
 
     def read_payment_type(self):
         self.payment_type_input = self.wait.until(EC.presence_of_element_located((By.XPATH,
-                                                                                  '//body[1]/div[1]/section[1]/main[1]/section[1]/div[3]/div[1]/div[2]/div[8]/div[1]/div[1]/div[1]')))
+                                                                                  "(//*[@name='paymentMode'])")))
         return self.payment_type_input.text
 
     def select_card_payment_type(self):
         if self.payment_type_input is None:
             self.payment_type_input = self.wait.until(EC.presence_of_element_located((By.XPATH,
-                                                                                      '//body[1]/div[1]/section[1]/main[1]/section[1]/div[3]/div[1]/div[2]/div[8]/div[1]/div[1]/div[1]')))
+                                                                                      "(//*[@name='paymentMode'])")))
         self.payment_type_input.click()
         self.card_payment_type = self.wait.until(EC.presence_of_element_located((By.XPATH, "//li[@data-value='Card']")))
         self.card_payment_type.click()
@@ -332,6 +333,10 @@ class BillingPage:
             EC.presence_of_element_located((By.XPATH, "//div[contains(text(), 'Reset')]")))
         self.reset_button.click()
         webdriver.ActionChains(self.driver).send_keys(Keys.ENTER).perform()
+
+    def delete_bill_entry(self, bill_number):
+        self.delete_button = self.wait.until(EC.presence_of_element_located((By.XPATH, f"(//*[contains(@class, 'ri-delete-bin-line')])[{bill_number}]")))
+        self.delete_button.click()
 
     def get_net_total(self):
         self.net_total = self.wait.until(EC.presence_of_element_located(

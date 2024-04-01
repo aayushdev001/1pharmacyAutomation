@@ -11,8 +11,8 @@ from tests.testSteps.conftest import driver, config
 
 
 @pytest.mark.usefixtures("driver", "config")
-class TestBillingStrip(BaseClass):
-    def test_billing_strip(self, driver, config):
+class TestDeleteBillEntry(BaseClass):
+    def test_delete_bill_entry(self, driver, config):
         # report logging
         log = self.get_logger()
 
@@ -34,27 +34,13 @@ class TestBillingStrip(BaseClass):
         available_strips = billing_page.get_first_strip_quantity()
         time.sleep(4)
         expected_total = config['item_quantity'] * billing_page.get_first_unit_mrp() * (
-                    1 - (billing_page.get_first_discount() / 100))
+                1 - (billing_page.get_first_discount() / 100))
         actual_total = billing_page.get_first_item_total()
         log.info(f"Expected Total = {expected_total}")
         log.info(f"Actual Total = {actual_total}")
         assert expected_total == actual_total
+
+        # delete bill
+        billing_page.delete_bill_entry(1)
         billing_page.click_submit()
-        time.sleep(5)
-
-        # bill history
-        driver.get(config['bill_history_url'])
-        bill_history_page = BillHistoryPage(driver)
-        bill_history_page.click_latest_bill()
-        bill_history_page.click_medicine_link(config['product_name'])
-
-        # medicine inventory
-        medicine_inventory_page = MedicineInventoryPage(driver)
-        medicine_inventory_page.click_batches()
-        remaining_stock = medicine_inventory_page.get_remaining_stock_strip(billing_page.get_first_default_batch())
-        log.info(f"Original stock = {available_strips}")
-        log.info(f"Remaining stock = {remaining_stock}")
-        assert remaining_stock == available_strips - config['item_quantity']
-
-
-
+        assert billing_page.is_missing_field_alert() == True
