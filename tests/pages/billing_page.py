@@ -79,7 +79,7 @@ class BillingPage:
 
     def enter_first_medicine_batch(self, batch):
         self.first_batch_input = self.wait.until(EC.element_to_be_clickable((By.XPATH,
-                                                                             "/html[1]/body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[4]/div[1]/div[1]/div[1]/input[1]")))
+                                                                             '//*[@name="batch"]')))
         self.first_batch_input.click()
         self.first_batch_input.send_keys(Keys.BACKSPACE * len(self.first_batch_input.get_attribute('value')))
         time.sleep(1)
@@ -89,13 +89,11 @@ class BillingPage:
         self.first_batch_input.click()
 
     def read_first_default_batch(self):
-        self.first_batch_input = self.wait.until(EC.presence_of_element_located((By.XPATH,
-                                                                                 '/html[1]/body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[4]/div[1]/div[1]/div[1]/input[1]')))
+        self.first_batch_input = self.wait.until(EC.presence_of_element_located((By.XPATH, '//*[@name="batch"]')))
         self.first_default_batch_name = self.first_batch_input.get_attribute('value')
 
     def read_second_default_batch(self):
-        self.second_batch_input = self.wait.until(EC.presence_of_element_located((By.XPATH,
-                                                                                  '//body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[2]/td[4]/div[1]/div[1]/div[1]/input[1]')))
+        self.second_batch_input = self.wait.until(EC.presence_of_element_located((By.XPATH, '//*[@name="batch"]')))
         self.second_default_batch_name = self.second_batch_input.get_attribute('value')
 
     def get_first_default_batch(self):
@@ -202,7 +200,7 @@ class BillingPage:
 
     def enter_overall_discount(self, disc):
         self.overall_discount_input = self.wait.until(EC.element_to_be_clickable((By.XPATH,
-                                                                                      "(//*[@name='discountPercent'])")))
+                                                                                  "(//*[@name='discountPercent'])")))
         self.overall_discount_input.click()
         self.overall_discount_input.send_keys(disc)
 
@@ -334,7 +332,8 @@ class BillingPage:
         webdriver.ActionChains(self.driver).send_keys(Keys.ENTER).perform()
 
     def delete_bill_entry(self, bill_number):
-        self.delete_button = self.wait.until(EC.presence_of_element_located((By.XPATH, f"(//*[contains(@class, 'ri-delete-bin-line')])[{bill_number}]")))
+        self.delete_button = self.wait.until(
+            EC.presence_of_element_located((By.XPATH, f"(//*[contains(@class, 'ri-delete-bin-line')])[{bill_number}]")))
         self.delete_button.click()
 
     def get_net_total(self):

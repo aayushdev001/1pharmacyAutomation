@@ -449,3 +449,7 @@
 2024-03-13 12:47:56,317 :INFO : test_billing_strip : Sold quantity = 10
 2024-03-13 12:48:00,838 :INFO : test_billing_strip : Expected Total = 1010.0
 2024-03-13 12:48:00,838 :INFO : test_billing_strip : Actual Total = 1010.0
+2024-04-04 11:03:27,056 :INFO : test_billing : New batch name = KlC
+2024-04-04 11:03:27,347 :INFO : test_billing : Sold quantity = 10
+2024-04-04 11:03:31,691 :INFO : test_billing : Expected Total = 135.0
+2024-04-04 11:03:31,691 :INFO : test_billing : Actual Total = 135.0
