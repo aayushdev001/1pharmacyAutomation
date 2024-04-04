@@ -15,8 +15,7 @@ class BillingPage:
         self.second_quantity_input = None
         self.wait = WebDriverWait(driver, 20)
         self.driver = driver
-        self.first_product_input = self.wait.until(
-            EC.presence_of_element_located((By.XPATH, '//*[@id="1p-basic-text"]')))
+        self.first_product_input = None
         self.second_row = None
         self.second_product_input = None
         self.first_batch_input = None
@@ -56,6 +55,7 @@ class BillingPage:
         self.net_total = None
 
     def enter_first_product_name(self, keyword):
+        self.first_product_input = self.wait.until(EC.presence_of_element_located((By.XPATH, '//*[@name="name"]')))
         self.first_product_input.send_keys(keyword)
 
     def select_first_product(self, keyword, product_name):
@@ -65,13 +65,12 @@ class BillingPage:
         product.click()
 
     def enter_second_product(self, keyword):
-        self.second_product_input = self.wait.until(EC.presence_of_element_located((By.XPATH,
-                                                                                    '//body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[2]/td[2]/div[1]/div[1]/input[1]')))
+        self.second_product_input = self.wait.until(EC.presence_of_element_located((By.XPATH, '//*[@name="name"]')))
         self.second_product_input.send_keys(keyword)
 
     def select_second_product(self, keyword, product_name):
         self.second_row = self.wait.until(EC.presence_of_element_located(
-            (By.XPATH, '//body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[2]/td[2]')))
+            (By.XPATH, '//td[text()="2"]')))
         self.second_row.click()
         self.enter_second_product(keyword)
         product = self.wait.until(
