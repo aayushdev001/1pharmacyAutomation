@@ -58,7 +58,7 @@ def config():
         "second_search_keyword": "dolo",
         "scheduled_product_name": "Krypton 360",
         "scheduled_product_search_keyword": "kryp",
-        "customer_name": "Aayush A",
+        "customer_name": "Aayush N",
         "customer_mobile_number": "9452361808",
         "wait": 50
     }
