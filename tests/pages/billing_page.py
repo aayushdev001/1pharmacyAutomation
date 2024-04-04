@@ -231,7 +231,7 @@ class BillingPage:
         try:
             self.bill_submit_alert = self.wait.until(
                 EC.presence_of_element_located(
-                    (By.XPATH, '//*[@id="root"]/div/div/div[2]')))
+                    (By.XPATH, "//*[contains(@class, 'alert')]/child::*[position()=2]")))
             if "is greater than stock quantity" in self.bill_submit_alert.text:
                 return True
             else:
@@ -243,7 +243,7 @@ class BillingPage:
         try:
             self.bill_submit_alert = self.wait.until(
                 EC.presence_of_element_located(
-                    (By.XPATH, '//*[@id="root"]/div/div/div[2]')))
+                    (By.XPATH, "//*[contains(@class, 'alert')]/child::*[position()=2]")))
             if "Please fill all the required fields" in self.bill_submit_alert.text:
                 return True
             else:
