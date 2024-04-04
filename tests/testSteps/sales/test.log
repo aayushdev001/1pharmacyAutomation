@@ -400,3 +400,8 @@
 2024-04-04 11:25:59,048 :INFO : test_first_medicine_strip_and_second_medicine_loose : Remaining stock = 399
 2024-04-04 11:26:02,963 :INFO : test_first_medicine_strip_and_second_medicine_loose : Original stock = 699
 2024-04-04 11:26:02,963 :INFO : test_first_medicine_strip_and_second_medicine_loose : Remaining stock = 689
+2024-04-04 11:30:46,076 :INFO : test_billing_strip : Sold quantity = 10
+2024-04-04 11:30:50,774 :INFO : test_billing_strip : Expected Total = 135.0
+2024-04-04 11:30:50,774 :INFO : test_billing_strip : Actual Total = 135.0
+2024-04-04 11:31:00,625 :INFO : test_billing_strip : Original stock = 399
+2024-04-04 11:31:00,625 :INFO : test_billing_strip : Remaining stock = 389

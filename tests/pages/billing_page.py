@@ -35,8 +35,7 @@ class BillingPage:
         self.first_item_total = None
         self.second_item_total = None
         self.gst = None
-        self.submit_button = self.wait.until(EC.presence_of_element_located((By.XPATH,
-                                                                             "//body/div[@id='root']/section[1]/main[1]/section[1]/div[3]/section[1]/div[2]/div[2]/button[2]")))
+        self.submit_button = self.wait.until(EC.presence_of_element_located((By.XPATH, "(//*[contains(@class, 'submit')])[2]")))
         self.done_button = None
         self.first_strip_loose_toggle_wrapper = None
         self.second_strip_loose_toggle_wrapper = None
