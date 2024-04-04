@@ -187,14 +187,12 @@ class BillingPage:
         return float(self.gst.text)
 
     def get_first_item_total(self):
-        self.first_item_total = self.wait.until(EC.presence_of_element_located((By.XPATH,
-                                                                                '//body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[16]')))
+        self.first_item_total = self.wait.until(EC.presence_of_element_located((By.XPATH, "//*[contains(@class, 'netItemAmount')]")))
         amount = self.first_item_total.text.replace('₹', '').replace(',', '')
         return float(amount)
 
     def get_second_item_total(self):
-        self.second_item_total = self.wait.until(EC.presence_of_element_located(
-            (By.XPATH, '//body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[2]/td[16]')))
+        self.second_item_total = self.wait.until(EC.presence_of_element_located((By.XPATH, "//*[contains(@class, 'netItemAmount')]")))
         amount = self.second_item_total.text.replace('₹', '').replace(',', '')
         return float(amount)
 
