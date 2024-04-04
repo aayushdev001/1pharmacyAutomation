@@ -208,13 +208,11 @@ class BillingPage:
         webdriver.ActionChains(self.driver).send_keys(Keys.ESCAPE).perform()
 
     def is_first_medicine_loose(self):
-        self.first_strip_loose_toggle_wrapper = self.wait.until(EC.presence_of_element_located((By.XPATH,
-                                                                                                "//body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[10]/div[1]/div[1]/span[1]/span[1]")))
+        self.first_strip_loose_toggle_wrapper = self.wait.until(EC.presence_of_element_located((By.XPATH, '(//input[@name="looseEnabled"]/parent::span)[1]')))
         return "Mui-checked" in self.first_strip_loose_toggle_wrapper.get_attribute('class')
 
     def is_second_medicine_loose(self):
-        self.second_strip_loose_toggle_wrapper = self.wait.until(EC.presence_of_element_located((By.XPATH,
-                                                                                                 '//body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[2]/td[10]/div[1]/div[1]/span[1]/span[1]')))
+        self.second_strip_loose_toggle_wrapper = self.wait.until(EC.presence_of_element_located((By.XPATH, '(//input[@name="looseEnabled"]/parent::span)[2]')))
         return "Mui-checked" in self.second_strip_loose_toggle_wrapper.get_attribute('class')
 
     def toggle_first_medicine_strip_loose(self):
