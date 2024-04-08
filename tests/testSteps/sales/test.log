@@ -669,3 +669,16 @@
 2024-04-08 12:20:28,060 :INFO : test_overall_discount : Actual Total = 375.75
 2024-04-08 12:21:45,063 :INFO : test_scheduled_medicines : Original stock = 400
 2024-04-08 12:21:45,063 :INFO : test_scheduled_medicines : Remaining stock = 400
+2024-04-08 17:34:02,515 :INFO : test_change_default_payment_type : Sold quantity = 10
+2024-04-08 17:34:07,496 :INFO : test_change_default_payment_type : Expected Total = 135.0
+2024-04-08 17:34:07,496 :INFO : test_change_default_payment_type : Actual Total = 135.0
+2024-04-08 17:34:07,577 :INFO : test_change_default_payment_type : Default payment type = Cash
+2024-04-08 17:34:08,149 :INFO : test_change_default_payment_type : New payment type = Card
+2024-04-08 17:34:18,410 :INFO : test_change_default_payment_type : Original stock = 83
+2024-04-08 17:34:18,410 :INFO : test_change_default_payment_type : Remaining stock = 73
+2024-04-08 17:37:58,404 :INFO : test_overall_discount : Sold quantity = 10
+2024-04-08 17:38:03,217 :INFO : test_overall_discount : Expected Total = 135.0
+2024-04-08 17:38:03,217 :INFO : test_overall_discount : Actual Total = 135.0
+2024-04-08 17:38:19,535 :INFO : test_overall_discount : Sold quantity = 10
+2024-04-08 17:38:24,279 :INFO : test_overall_discount : Expected Total = 375.75
+2024-04-08 17:38:24,281 :INFO : test_overall_discount : Actual Total = 375.75
