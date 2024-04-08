@@ -11,8 +11,7 @@ class BillHistoryPage:
     def __init__(self, driver):
         self.wait = WebDriverWait(driver, 20)
         self.driver = driver
-        self.latest_bill = self.wait.until(EC.presence_of_element_located(
-            (By.XPATH, '//*[@id="root"]/section/main/div[3]/div[2]/div/div[2]/table/tbody/tr')))
+        self.latest_bill = None
         self.latest_bill_quantity = None
         self.medicine_link = None
         self.second_medicine_link = None
@@ -21,6 +20,7 @@ class BillHistoryPage:
         self.first_bill_net_amount = None
 
     def click_latest_bill(self):
+        self.latest_bill = self.wait.until(EC.presence_of_element_located((By.XPATH, "//*[contains(@class, 'tableRow-1')]")))
         self.latest_bill.click()
 
     def get_latest_bill_quantity(self):

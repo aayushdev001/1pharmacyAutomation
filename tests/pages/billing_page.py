@@ -35,7 +35,8 @@ class BillingPage:
         self.first_item_total = None
         self.second_item_total = None
         self.gst = None
-        self.submit_button = self.wait.until(EC.presence_of_element_located((By.XPATH, "(//*[contains(@class, 'submit')])[2]")))
+        self.submit_button = self.wait.until(
+            EC.presence_of_element_located((By.XPATH, "(//*[contains(@class, 'submit')])[2]")))
         self.done_button = None
         self.first_strip_loose_toggle_wrapper = None
         self.second_strip_loose_toggle_wrapper = None
@@ -186,12 +187,14 @@ class BillingPage:
         return float(self.gst.text)
 
     def get_first_item_total(self):
-        self.first_item_total = self.wait.until(EC.presence_of_element_located((By.XPATH, "//*[contains(@class, 'netItemAmount')]")))
+        self.first_item_total = self.wait.until(
+            EC.presence_of_element_located((By.XPATH, "//*[contains(@class, 'netItemAmount')]")))
         amount = self.first_item_total.text.replace('₹', '').replace(',', '')
         return float(amount)
 
     def get_second_item_total(self):
-        self.second_item_total = self.wait.until(EC.presence_of_element_located((By.XPATH, "//*[contains(@class, 'netItemAmount')]")))
+        self.second_item_total = self.wait.until(
+            EC.presence_of_element_located((By.XPATH, "//*[contains(@class, 'netItemAmount')]")))
         amount = self.second_item_total.text.replace('₹', '').replace(',', '')
         return float(amount)
 
@@ -208,11 +211,13 @@ class BillingPage:
         webdriver.ActionChains(self.driver).send_keys(Keys.ESCAPE).perform()
 
     def is_first_medicine_loose(self):
-        self.first_strip_loose_toggle_wrapper = self.wait.until(EC.presence_of_element_located((By.XPATH, '(//input[@name="looseEnabled"]/parent::span)[1]')))
+        self.first_strip_loose_toggle_wrapper = self.wait.until(
+            EC.presence_of_element_located((By.XPATH, '(//input[@name="looseEnabled"]/parent::span)[1]')))
         return "Mui-checked" in self.first_strip_loose_toggle_wrapper.get_attribute('class')
 
     def is_second_medicine_loose(self):
-        self.second_strip_loose_toggle_wrapper = self.wait.until(EC.presence_of_element_located((By.XPATH, '(//input[@name="looseEnabled"]/parent::span)[2]')))
+        self.second_strip_loose_toggle_wrapper = self.wait.until(
+            EC.presence_of_element_located((By.XPATH, '(//input[@name="looseEnabled"]/parent::span)[2]')))
         return "Mui-checked" in self.second_strip_loose_toggle_wrapper.get_attribute('class')
 
     def toggle_first_medicine_strip_loose(self):
@@ -282,36 +287,39 @@ class BillingPage:
         self.expiry_input.send_keys(expiry)
 
     def select_customer_name(self, name):
-        self.customer_name_input = self.wait.until(EC.presence_of_element_located((By.XPATH, '//*[@name="customerName"]')))
+        self.customer_name_input = self.wait.until(
+            EC.presence_of_element_located((By.XPATH, '//*[@name="customerName"]')))
         self.customer_name_input.click()
         self.customer_name = self.wait.until(
             EC.presence_of_element_located((By.XPATH, f"//p[contains(text(),'{name}')]")))
         self.customer_name.click()
 
     def select_customer_mobile_number(self, number):
-        self.customer_mobile_input = self.wait.until(EC.presence_of_element_located((By.XPATH, '//*[@name="customerPhone"]')))
+        self.customer_mobile_input = self.wait.until(
+            EC.presence_of_element_located((By.XPATH, '//*[@name="customerPhone"]')))
         self.customer_mobile_input.click()
         self.customer_mobile = self.wait.until(
             EC.presence_of_element_located((By.XPATH, f"//p[contains(text(),'{number}')]")))
         self.customer_mobile.click()
 
     def read_customer_number(self):
-        self.customer_mobile_input = self.wait.until(EC.presence_of_element_located((By.XPATH, '//*[@name="customerPhone"]')))
+        self.customer_mobile_input = self.wait.until(
+            EC.presence_of_element_located((By.XPATH, '//*[@name="customerPhone"]')))
         return self.customer_mobile_input.get_attribute('value')
 
     def read_customer_name(self):
-        self.customer_name_input = self.customer_name_input = self.wait.until(EC.presence_of_element_located((By.XPATH, '//*[@name="customerName"]')))
+        self.customer_name_input = self.customer_name_input = self.wait.until(
+            EC.presence_of_element_located((By.XPATH, '//*[@name="customerName"]')))
         return self.customer_name_input.get_attribute('value')
 
     def read_payment_type(self):
-        self.payment_type_input = self.wait.until(EC.presence_of_element_located((By.XPATH,
-                                                                                  "(//*[@name='paymentMode'])")))
+        self.payment_type_input = self.wait.until(EC.presence_of_element_located((By.ID, '1p-select-labelId')))
         return self.payment_type_input.text
 
     def select_card_payment_type(self):
+        webdriver.ActionChains(self.driver).send_keys(Keys.ESCAPE).perform()
         if self.payment_type_input is None:
-            self.payment_type_input = self.wait.until(EC.presence_of_element_located((By.XPATH,
-                                                                                      "(//*[@name='paymentMode'])")))
+            self.payment_type_input = self.wait.until(EC.element_to_be_clickable((By.ID, '1p-select-labelId')))
         self.payment_type_input.click()
         self.card_payment_type = self.wait.until(EC.presence_of_element_located((By.XPATH, "//li[@data-value='Card']")))
         self.card_payment_type.click()
@@ -328,7 +336,7 @@ class BillingPage:
         self.delete_button.click()
 
     def get_net_total(self):
-        self.net_total = self.wait.until(EC.presence_of_element_located(
-            (By.XPATH, '//body[1]/div[1]/section[1]/main[1]/section[1]/div[3]/section[1]/div[1]/div[5]/h6[2]')))
+        self.net_total = self.wait.until(
+            EC.presence_of_element_located((By.XPATH, "//*[contains(@class, 'netAmount')]")))
         amount = self.net_total.text.replace('₹', '').replace(',', '')
         return float(amount)

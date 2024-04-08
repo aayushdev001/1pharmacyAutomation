@@ -535,3 +535,10 @@
 2024-04-04 14:31:03,102 :INFO : test_change_default_payment_type : New payment type = Card
 2024-04-04 14:31:13,230 :INFO : test_change_default_payment_type : Original stock = 267
 2024-04-04 14:31:13,230 :INFO : test_change_default_payment_type : Remaining stock = 257
+2024-04-04 14:52:32,160 :INFO : test_change_default_payment_type : Sold quantity = 10
+2024-04-04 14:52:36,892 :INFO : test_change_default_payment_type : Expected Total = 135.0
+2024-04-04 14:52:36,892 :INFO : test_change_default_payment_type : Actual Total = 135.0
+2024-04-04 14:52:36,927 :INFO : test_change_default_payment_type : Default payment type = Cash
+2024-04-04 14:52:37,297 :INFO : test_change_default_payment_type : New payment type = Card
+2024-04-04 14:52:47,456 :INFO : test_change_default_payment_type : Original stock = 257
+2024-04-04 14:52:47,456 :INFO : test_change_default_payment_type : Remaining stock = 247
