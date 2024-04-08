@@ -291,8 +291,8 @@ class BillingPage:
             EC.presence_of_element_located((By.XPATH, '//*[@name="customerName"]')))
         self.customer_name_input.click()
         self.customer_name = self.wait.until(
-            EC.presence_of_element_located((By.XPATH, f"//p[contains(text(),'{name}')]")))
-        self.customer_name.click()
+            EC.element_to_be_clickable((By.XPATH, f"//p[contains(text(),'{name}')]")))
+        self.driver.execute_script("arguments[0].click();", self.customer_name)
 
     def select_customer_mobile_number(self, number):
         self.customer_mobile_input = self.wait.until(
@@ -300,7 +300,7 @@ class BillingPage:
         self.customer_mobile_input.click()
         self.customer_mobile = self.wait.until(
             EC.presence_of_element_located((By.XPATH, f"//p[contains(text(),'{number}')]")))
-        self.customer_mobile.click()
+        self.driver.execute_script("arguments[0].click();", self.customer_mobile)
 
     def read_customer_number(self):
         self.customer_mobile_input = self.wait.until(

@@ -1,6 +1,5 @@
 import time
 
-import pyautogui
 from selenium.webdriver import ActionChains
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC

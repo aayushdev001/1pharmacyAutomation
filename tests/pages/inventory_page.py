@@ -6,8 +6,9 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import re
 from selenium.webdriver.common.keys import Keys
-import pyautogui
 from selenium import webdriver
+
+
 class InventoryPage:
     def __init__(self, driver):
         self.wait = WebDriverWait(driver, 20)
