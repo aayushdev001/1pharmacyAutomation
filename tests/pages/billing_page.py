@@ -19,6 +19,7 @@ class BillingPage:
             EC.presence_of_element_located((By.XPATH, '//*[@id="1p-basic-text"]')))
         self.second_row = None
         self.second_product_input = None
+        self.add_item_button = None
         self.first_batch_input = None
         self.second_batch_input = None
         self.first_default_batch_name = ""
@@ -78,6 +79,9 @@ class BillingPage:
             EC.presence_of_element_located((By.XPATH, f"//span[contains(text(), '{product_name}')]")))
         product.click()
 
+    def add_new_item(self):
+        self.add_item_button = self.wait.until(EC.presence_of_element_located((By.XPATH, "//button[contains(text(), 'Add Item')]")))
+        self.add_item_button.click()
     def enter_first_medicine_batch(self, batch):
         self.first_batch_input = self.wait.until(EC.element_to_be_clickable((By.XPATH,
                                                                              "/html[1]/body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[4]/div[1]/div[1]/div[1]/input[1]")))

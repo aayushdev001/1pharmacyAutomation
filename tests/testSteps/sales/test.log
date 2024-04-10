@@ -360,3 +360,11 @@
 2024-04-01 12:48:09,749 :INFO : test_delete_bill_entry : Sold quantity = 10
 2024-04-01 12:48:14,340 :INFO : test_delete_bill_entry : Expected Total = 135.0
 2024-04-01 12:48:14,340 :INFO : test_delete_bill_entry : Actual Total = 135.0
+2024-04-10 12:22:06,068 :INFO : test_billing_strip : Sold quantity = 10
+2024-04-10 12:22:10,915 :INFO : test_billing_strip : Expected Total = 135.0
+2024-04-10 12:22:10,915 :INFO : test_billing_strip : Actual Total = 135.0
+2024-04-10 12:24:36,895 :INFO : test_billing_strip : Sold quantity = 10
+2024-04-10 12:24:41,648 :INFO : test_billing_strip : Expected Total = 135.0
+2024-04-10 12:24:41,648 :INFO : test_billing_strip : Actual Total = 135.0
+2024-04-10 12:24:51,102 :INFO : test_billing_strip : Original stock = 491
+2024-04-10 12:24:51,103 :INFO : test_billing_strip : Remaining stock = 481
