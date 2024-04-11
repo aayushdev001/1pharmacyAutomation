@@ -1,6 +1,7 @@
 import time
 
 from selenium.common import TimeoutException
+from selenium.webdriver import ActionChains
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
@@ -80,8 +81,10 @@ class BillingPage:
         product.click()
 
     def add_new_item(self):
-        self.add_item_button = self.wait.until(EC.presence_of_element_located((By.XPATH, "//button[contains(text(), 'Add Item')]")))
+        self.add_item_button = self.wait.until(
+            EC.presence_of_element_located((By.XPATH, "//button[contains(text(), 'Add Item')]")))
         self.add_item_button.click()
+
     def enter_first_medicine_batch(self, batch):
         self.first_batch_input = self.wait.until(EC.element_to_be_clickable((By.XPATH,
                                                                              "/html[1]/body[1]/div[1]/section[1]/main[1]/section[1]/div[2]/div[1]/table[1]/tbody[1]/tr[1]/td[4]/div[1]/div[1]/div[1]/input[1]")))
@@ -112,6 +115,9 @@ class BillingPage:
     def enter_first_quantity(self, quantity):
         self.first_quantity_input = self.wait.until(EC.element_to_be_clickable(
             (By.XPATH, "//*[@name='billQty']")))
+        ActionChains(self.driver).click(self.first_quantity_input).send_keys(
+            Keys.BACKSPACE * len(self.first_quantity_input.get_attribute("value"))).perform()
+
         self.first_quantity_input.send_keys(quantity)
 
     def enter_second_quantity(self, quantity):
@@ -120,8 +126,9 @@ class BillingPage:
 
     def get_first_strip_quantity(self):
         self.first_batch_input.click()
+        time.sleep(3)
         self.stock = self.wait.until(EC.presence_of_element_located((By.XPATH,
-                                                                     f"//div[text()='{self.first_default_batch_name}']/following::div[4]")))
+                                                                     f"//div[text()='{self.first_default_batch_name}']/following::div[3]")))
         match = re.search(r'^(\d+)', self.stock.text)
         if match:
             self.quantity = int(match.group(1))
@@ -167,7 +174,10 @@ class BillingPage:
             EC.element_to_be_clickable((By.XPATH,
                                         "(//*[@name='discount'])[1]")))
         self.discount = self.first_discount_input.get_attribute('value')
-        return float(self.discount)
+        if self.discount is "":
+            return 0.0
+        else:
+            return float(self.discount)
 
     def get_second_discount(self):
         self.second_discount_input = self.wait.until(EC.element_to_be_clickable((By.XPATH,
@@ -207,7 +217,7 @@ class BillingPage:
 
     def enter_overall_discount(self, disc):
         self.overall_discount_input = self.wait.until(EC.element_to_be_clickable((By.XPATH,
-                                                                                      "(//*[@name='discountPercent'])")))
+                                                                                  "(//*[@name='discountPercent'])")))
         self.overall_discount_input.click()
         self.overall_discount_input.send_keys(disc)
 
@@ -339,7 +349,8 @@ class BillingPage:
         webdriver.ActionChains(self.driver).send_keys(Keys.ENTER).perform()
 
     def delete_bill_entry(self, bill_number):
-        self.delete_button = self.wait.until(EC.presence_of_element_located((By.XPATH, f"(//*[contains(@class, 'ri-delete-bin-line')])[{bill_number}]")))
+        self.delete_button = self.wait.until(
+            EC.presence_of_element_located((By.XPATH, f"(//*[contains(@class, 'ri-delete-bin-line')])[{bill_number}]")))
         self.delete_button.click()
 
     def get_net_total(self):

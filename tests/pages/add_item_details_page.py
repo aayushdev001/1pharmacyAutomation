@@ -44,7 +44,7 @@ class AddItemDetailsPage:
 
     def enter_batch(self, name):
         self.batch_input = self.wait.until(EC.presence_of_element_located((By.XPATH, '//*[@name="batchNo"]')))
-        self.driver.execute_script("arguments[0].scrollIntoView();", self.batch_input)
+        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         self.batch_input.send_keys(name)
 
     def enter_quantity(self, qty):
@@ -52,10 +52,12 @@ class AddItemDetailsPage:
         self.quantity_input.send_keys(qty)
 
     def enter_expiry(self, exp):
-        self.quantity_input = self.wait.until(EC.presence_of_element_located((By.XPATH, '//*[@name="expiry"]')))
+        self.expiry_input = self.wait.until(EC.presence_of_element_located((By.XPATH, "//input[@placeholder='mm/yyyy']")))
+        self.expiry_input.send_keys(exp)
 
     def enter_batch_mrp(self, mrp):
         self.batch_mrp_input = self.wait.until(EC.presence_of_element_located((By.XPATH, '(//*[@name="mrp"])[2]')))
+        self.batch_mrp_input.send_keys(mrp)
 
     def click_save(self):
         self.save_button = self.wait.until(EC.presence_of_element_located((By.XPATH, "//button[contains(text(), 'Save')]")))
